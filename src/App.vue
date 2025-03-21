@@ -5,10 +5,18 @@ import Header from './components/Header.vue';
 
 <template>
   <div id="app">
-    <Header />  <!-- Un composant commun, peut-être un en-tête -->
-    <router-view />  <!-- Ici s'affichera le composant correspondant à la route -->
+    <Header />  <!-- Un composant commun -->
+    <div class="container">
+      <router-view />  <!-- Composant correspondant à la route -->
+    </div>
   </div>
 </template>
 
 <style scoped>
+@media (max-width: 767px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 </style>

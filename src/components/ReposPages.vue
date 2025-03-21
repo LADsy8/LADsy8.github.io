@@ -60,12 +60,12 @@ onMounted(() => {
   <div class="container py-5">
     <h2 class="text-center mb-4">Liste des Repos</h2>
 
-    <!-- Affichage des repos pour la catégorie 'school' -->
+    <!-- Repos École -->
     <div v-if="schoolRepos.length > 0">
       <h3>Repos École</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4"> <!-- Utilisation de Bootstrap Grid -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <div class="col" v-for="repo in schoolRepos" :key="repo.id">
-          <div class="card h-100"> <!-- h-100 pour uniformiser la hauteur des cartes -->
+          <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">{{ repo.name }}</h5>
               <p class="card-text">{{ repo.description || 'Aucune description disponible' }}</p>
@@ -76,12 +76,12 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Affichage des repos pour la catégorie 'personal' -->
+    <!-- Repos Personnels -->
     <div v-if="personalRepos.length > 0">
       <h3>Repos Personnels</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4"> <!-- Utilisation de Bootstrap Grid -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <div class="col" v-for="repo in personalRepos" :key="repo.id">
-          <div class="card h-100"> <!-- h-100 pour uniformiser la hauteur des cartes -->
+          <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">{{ repo.name }}</h5>
               <p class="card-text">{{ repo.description || 'Aucune description disponible' }}</p>
@@ -92,10 +92,10 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Affichage de tous les repos si aucun repo scolaire ou personnel -->
+    <!-- Tous les Repos -->
     <div v-if="allRepos.length > 0 && schoolRepos.length === 0 && personalRepos.length === 0">
       <h3>Tous les Repos</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <div class="col" v-for="repo in allRepos" :key="repo.id">
           <div class="card h-100">
             <div class="card-body">
@@ -108,18 +108,15 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Si aucun repo n'est trouvé pour cette catégorie -->
     <div v-else>
       <p>Aucun repo trouvé pour cette catégorie.</p>
     </div>
   </div>
 </template>
 
-
-
 <style scoped>
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre légère autour des cartes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour les cartes */
 }
 
 .card-body {
@@ -133,5 +130,19 @@ onMounted(() => {
 
 .card-text {
   font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  .card-body {
+    padding: 15px; /* Réduire le padding pour les écrans mobiles */
+  }
+
+  .card-title {
+    font-size: 1rem; /* Taille de texte réduite sur mobile */
+  }
+
+  .card-text {
+    font-size: 0.9rem; /* Taille de texte réduite sur mobile */
+  }
 }
 </style>
