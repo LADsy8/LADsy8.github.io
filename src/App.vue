@@ -1,12 +1,12 @@
+
 <script setup lang="ts">
 import Header from './components/Header.vue';
-import Portfolio from './components/Portfolio.vue';
 </script>
 
 <template>
   <div id="app">
-    <Header />
-    <Portfolio />
+    <Header />  <!-- Un composant commun, peut-être un en-tête -->
+    <router-view />  <!-- Ici s'affichera le composant correspondant à la route -->
   </div>
 </template>
 

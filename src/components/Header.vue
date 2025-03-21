@@ -1,10 +1,20 @@
+<script setup lang="ts">
+  </script>
+
 <template>
-    <header class="bg-primary text-white py-5">
-      <div class="container text-center">
-        <h1>Mon Portfolio</h1>
-        <p>Voici mes projets de programmation</p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Mon Portfolio</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <router-link to="/" class="nav-link">Accueil</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/repos/all" class="nav-link">Repos</router-link>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
   </template>
   
   <style scoped>
