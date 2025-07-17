@@ -44,7 +44,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 @media (max-width: 767px) {
   .text-center {
     padding-left: 15px;
