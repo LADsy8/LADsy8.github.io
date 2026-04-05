@@ -1,23 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
+import { useGithub } from '../composables/useGithub';
 
-const githubProfile = ref<any>(null);
-const loading = ref(true);
-
-const fetchGithubProfile = async () => {
-  try {
-    const response = await fetch('https://api.github.com/users/ladsy8');
-    const data = await response.json();
-    githubProfile.value = data;
-  } catch (error) {
-    console.error('Erreur:', error);
-  } finally {
-    loading.value = false;
-  }
-};
+const { user: githubProfile, fetchUserProfile } = useGithub();
 
 onMounted(() => {
-  fetchGithubProfile();
+  fetchUserProfile();
 });
 </script>
 

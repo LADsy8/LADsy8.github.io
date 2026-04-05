@@ -1,42 +1,55 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useGithub } from '../composables/useGithub';
+import type { GitHubRepository } from '../types/github';
 
 const route = useRoute();
-const allRepos = ref<any[]>([]);
-const loading = ref(true);
+const { repos: allRepos, loading, fetchUserRepos } = useGithub();
 
-const fetchRepos = async () => {
-  try {
-    const response = await fetch(`https://api.github.com/users/ladsy8/repos?sort=updated`);
-    allRepos.value = await response.json();
-  } catch (error) {
-    console.error('Erreur:', error);
-  } finally {
-    loading.value = false;
-  }
+// Configuration des catégories pour un filtrage plus robuste
+const categoriesConfig = {
+  school: ['ecole', 'school', 'academic', 'université', 'college'],
+  personal: ['personnel', 'personal', 'projet', 'expérimentation'],
+  all: []
 };
 
-// Logique de filtrage simplifiée et réactive
+/**
+ * Filtre les repositories en fonction de la catégorie
+ * Utilise une recherche insensible à la casse dans le nom et la description
+ */
 const filteredRepos = computed(() => {
   const category = route.params.category as string;
-  
-  if (category === 'school') {
-    return allRepos.value.filter(repo => repo.description?.toLowerCase().includes("ecole"));
-  } else if (category === 'personal') {
-    return allRepos.value.filter(repo => repo.description?.toLowerCase().includes("personnel"));
+  const keywords = categoriesConfig[category as keyof typeof categoriesConfig] || [];
+
+  if (category === 'all' || !keywords.length) {
+    return allRepos.value;
   }
-  return allRepos.value;
+
+  return allRepos.value.filter((repo: GitHubRepository) => {
+    const searchText = `${repo.name} ${repo.description || ''}`.toLowerCase();
+    return keywords.some(keyword => searchText.includes(keyword.toLowerCase()));
+  });
 });
 
+/**
+ * Titre de la catégorie en fonction du paramètre de route
+ */
 const getCategoryTitle = computed(() => {
   const category = route.params.category;
-  if (category === 'school') return 'Projets Académiques';
-  if (category === 'personal') return 'Projets Personnels';
-  return 'Tous mes Projets';
+  switch (category) {
+    case 'school':
+      return 'Projets Académiques';
+    case 'personal':
+      return 'Projets Personnels';
+    default:
+      return 'Tous mes Projets';
+  }
 });
 
-onMounted(fetchRepos);
+onMounted(() => {
+  fetchUserRepos();
+});
 </script>
 
 <template>
