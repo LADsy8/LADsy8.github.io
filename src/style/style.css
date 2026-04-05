@@ -11,6 +11,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Variables thème clair */
+  --bg-primary-light: #ffffff;
+  --bg-secondary-light: #f8f9fa;
+  --text-primary-light: #2d3436;
+  --text-secondary-light: #636e72;
+  --accent-light: #6c5ce7;
+  --card-bg-light: rgba(255, 255, 255, 0.9);
+  --border-light: rgba(0, 0, 0, 0.1);
 }
 
 a {
@@ -82,9 +91,100 @@ button:focus-visible {
   --border: rgba(255, 255, 255, 0.1);
 }
 
+/* Thème clair (par défaut) */
+:root:not([data-theme="dark"]) {
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --accent: var(--accent-light);
+  --card-bg: var(--card-bg-light);
+  --border: var(--border-light);
+}
+
 [data-theme="dark"] body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+}
+
+/* Appliquer le thème sombre à tous les éléments */
+[data-theme="dark"] * {
+  color: inherit;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div {
+  color: var(--text-primary);
+}
+
+/* Cartes et sections */
+[data-theme="dark"] .card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .about-section,
+[data-theme="dark"] .skills-section,
+[data-theme="dark"] .repos-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+/* Liens */
+[data-theme="dark"] a:not(.nav-link):not(.navbar-brand) {
+  color: var(--accent);
+}
+
+[data-theme="dark"] a:not(.nav-link):not(.navbar-brand):hover {
+  color: var(--text-primary);
+}
+
+/* Boutons */
+[data-theme="dark"] .btn:not(.theme-toggle) {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+[data-theme="dark"] .btn:not(.theme-toggle):hover {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* Inputs et formulaires */
+[data-theme="dark"] .form-control {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+}
+
+[data-theme="dark"] .form-label {
+  color: var(--text-primary);
+}
+
+/* Sections avec fond */
+[data-theme="dark"] .py-5 {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .container {
+  background-color: transparent;
 }
 
 [data-theme="dark"] .navbar {
@@ -125,4 +225,85 @@ button:focus-visible {
   border-color: var(--accent);
   color: var(--accent);
   transform: scale(1.1);
+}
+
+/* Application du thème clair par défaut */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p, span, div {
+  color: var(--text-primary);
+}
+
+.card, .contact-card, .about-section, .skills-section, .repos-section {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+a:not(.nav-link):not(.navbar-brand) {
+  color: var(--accent);
+}
+
+a:not(.nav-link):not(.navbar-brand):hover {
+  color: var(--text-primary);
+}
+
+.btn:not(.theme-toggle) {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.btn:not(.theme-toggle):hover {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.form-control {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.form-control:focus {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+}
+
+.form-label {
+  color: var(--text-primary);
+}
+
+.py-5 {
+  background-color: var(--bg-primary);
+}
+
+.navbar {
+  background: rgba(248, 249, 250, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+}
+
+.nav-link:hover,
+.active-link {
+  color: var(--accent) !important;
 }
