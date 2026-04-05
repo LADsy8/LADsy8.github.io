@@ -25,18 +25,46 @@
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/about" class="nav-link" active-class="active-link">
+              À Propos
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/skills" class="nav-link" active-class="active-link">
+              Compétences
+            </router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/repos/all" class="nav-link" active-class="active-link">
               Projets
             </router-link>
           </li>
           <li class="nav-item ms-lg-3">
-            <a href="mailto:ton-email@exemple.com" class="btn-contact">Me contacter</a>
+            <router-link to="/contact" class="btn-contact">
+              Me contacter
+            </router-link>
+          </li>
+          <li class="nav-item ms-2">
+            <button @click="toggleTheme" class="theme-toggle" :aria-label="isDark ? 'Passer en mode clair' : 'Passer en mode sombre'">
+              <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { useTheme } from '../composables/useTheme';
+
+const { isDark, toggleTheme, loadTheme } = useTheme();
+
+onMounted(() => {
+  loadTheme();
+});
+</script>
 
 <style scoped>
 /* Effet Glassmorphism sur la Nav */

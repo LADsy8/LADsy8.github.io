@@ -12,12 +12,12 @@ onMounted(() => {
 <template>
   <div class="portfolio-wrapper">
     <div class="container py-5">
-      <header class="text-center mb-5 fade-in">
+      <header class="text-center mb-5 fade-in" data-aos="fade-up">
         <h1 class="display-4 fw-bold gradient-text">Bienvenue sur mon Portfolio</h1>
         <div class="underline mx-auto"></div>
       </header>
 
-      <div v-if="githubProfile" class="profile-card mx-auto p-4 mb-5 shadow-lg">
+      <div v-if="githubProfile" class="profile-card mx-auto p-4 mb-5 shadow-lg" data-aos="fade-up" data-aos-delay="200">
         <div class="profile-content">
           <div class="avatar-container">
             <img :src="githubProfile.avatar_url" alt="Avatar" class="profile-avatar">
@@ -39,14 +39,14 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="text-center mt-5">
+      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
         <h3 class="mb-4 section-title">Explorez mon univers</h3>
         <div class="row justify-content-center g-4">
-          <div class="col-md-4 col-sm-6" v-for="category in [
+          <div class="col-md-4 col-sm-6" v-for="(category, index) in [
             { id: 'school', label: 'Projets Académiques', icon: '🎓' },
             { id: 'personal', label: 'Projets Personnels', icon: '🚀' },
             { id: 'all', label: 'Tous les Dépôts', icon: '📂' }
-          ]" :key="category.id">
+          ]" :key="category.id" data-aos="zoom-in" :data-aos-delay="500 + index * 100">
             <router-link :to="`/repos/${category.id}`" class="category-card">
               <span class="icon">{{ category.icon }}</span>
               <span class="label">{{ category.label }}</span>

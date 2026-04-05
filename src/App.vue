@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <div class="p-0 m-0 w-100">
+  <div class="app-wrapper">
     <Header />
-    <div class="container-fluid">
+    <main class="main-content">
       <router-view />
-    </div>
+    </main>
+    <Footer />
   </div>
 </template>
 
