@@ -12,7 +12,7 @@
     "test:e2e:ui": "playwright test --ui",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx,.vue --fix",
-    "format": "prettier --write src/**/*.{ts,tsx,vue,js,jsx,json,css,scss,md}"
+    "format": "prettier --write src/**/*.ts src/**/*.vue src/**/*.css"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
