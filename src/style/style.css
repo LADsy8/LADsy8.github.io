@@ -235,22 +235,39 @@ button:focus-visible {
 
 /* Application du thème à tous les éléments */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Couleurs de base pour tous les éléments */
-html, body, #app, .app-wrapper, .main-content {
+html,
+body,
+#app,
+.app-wrapper,
+.main-content {
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
 
 /* Titres */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-primary);
 }
 
 /* Texte */
-p, span, div, li, td, th {
+p,
+span,
+div,
+li,
+td,
+th {
   color: var(--text-primary);
 }
 
@@ -272,7 +289,11 @@ p, span, div, li, td, th {
 }
 
 /* Cartes et sections */
-.card, .contact-card, .about-section, .skills-section, .repos-section {
+.card,
+.contact-card,
+.about-section,
+.skills-section,
+.repos-section {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -338,6 +359,7 @@ a:not(.nav-link):not(.navbar-brand):hover {
   color: var(--text-secondary) !important;
 }
 
-.nav-link:hover, .active-link {
+.nav-link:hover,
+.active-link {
   color: var(--accent) !important;
 }
