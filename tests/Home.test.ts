@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../src/components/Home.vue';
+import Home from '../src/views/Home.vue';
 
 // Mock du composable
 vi.mock('../src/composables/useGithub', () => ({

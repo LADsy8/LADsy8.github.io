@@ -5,16 +5,7 @@ export default defineConfig({
   plugins: [vue()],
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     exclude: ['**/e2e/**', '**/node_modules/**'],
-    pool: 'threads',
-    threads: {
-      singleThread: true,
-    },
-    server: {
-      deps: {
-        inline: ['html-encoding-sniffer'],
-      },
-    },
   },
 });
