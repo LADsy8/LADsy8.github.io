@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useTheme } from '../composables/useTheme';
+import { useTheme } from '../../composables/useTheme';
 
 const { isDark, toggleTheme, loadTheme } = useTheme();
 
@@ -75,6 +75,8 @@ onMounted(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1rem 0;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 999;
 }
 
 /* Style du Logo */
@@ -178,17 +180,47 @@ onMounted(() => {
     padding: 1rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
   }
   
   .nav-item {
     width: 100%;
     text-align: center;
     margin: 10px 0;
+    padding: 5px 0;
+  }
+
+  .nav-link {
+    padding: 8px 1rem !important;
+    display: block;
+    white-space: nowrap;
   }
 
   .btn-contact {
     display: inline-block;
     margin-top: 10px;
+    padding: 10px 24px !important;
   }
+
+  .theme-toggle {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.1rem;
+  }
+}
+
+/* Dark mode mobile */
+[data-theme="dark"] .navbar-collapse {
+  background: rgba(45, 52, 54, 0.95);
+  color: white;
+}
+
+[data-theme="dark"] .nav-link {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .btn-contact {
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.5);
 }
 </style>

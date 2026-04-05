@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx,.vue --fix",
+    "format": "prettier --write src/**/*.{ts,tsx,vue,js,jsx,json,css,scss,md}"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
@@ -18,11 +23,20 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.1",
     "@types/aos": "^3.0.7",
+    "@typescript-eslint/eslint-plugin": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-vue": "^10.8.0",
     "jsdom": "^29.0.1",
+    "prettier": "^3.8.1",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
     "vitest": "^4.1.2",

@@ -65,7 +65,7 @@
 
               <!-- Formulaire de contact -->
               <div class="col-md-7">
-                <form @submit.prevent="handleSubmit" class="contact-form">
+                <form @submit.prevent="handleSubmit" class="contact-form" novalidate>
                   <div class="mb-3">
                     <label for="name" class="form-label">Nom complet</label>
                     <input
@@ -142,19 +142,13 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
+import { validateContactForm } from '../utils/validation';
 
 interface ContactForm {
   name: string;
   email: string;
   subject: string;
   message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  subject?: string;
-  message?: string;
 }
 
 const form = reactive<ContactForm>({
@@ -164,47 +158,27 @@ const form = reactive<ContactForm>({
   message: '',
 });
 
-const errors = reactive<FormErrors>({});
+const errors = reactive<Record<string, string>>({});
 const isSubmitting = ref(false);
 const submitMessage = ref<{ type: string; text: string } | null>(null);
-
-/**
- * Valide le formulaire
- */
-const validateForm = (): boolean => {
-  errors.name = '';
-  errors.email = '';
-  errors.subject = '';
-  errors.message = '';
-
-  if (!form.name.trim()) {
-    errors.name = 'Le nom est requis';
-  }
-
-  if (!form.email.trim()) {
-    errors.email = 'L\'email est requis';
-  } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-    errors.email = 'L\'email n\'est pas valide';
-  }
-
-  if (!form.subject.trim()) {
-    errors.subject = 'Le sujet est requis';
-  }
-
-  if (!form.message.trim()) {
-    errors.message = 'Le message est requis';
-  } else if (form.message.trim().length < 10) {
-    errors.message = 'Le message doit contenir au moins 10 caractères';
-  }
-
-  return Object.values(errors).every(error => !error);
-};
 
 /**
  * Gère la soumission du formulaire
  */
 const handleSubmit = async () => {
-  if (!validateForm()) {
+  // Utiliser le helper de validation
+  const validationErrors = validateContactForm(form);
+
+  // Réinitialiser les erreurs
+  Object.keys(errors).forEach(key => {
+    delete errors[key];
+  });
+
+  // Appliquer les nouvelles erreurs
+  Object.assign(errors, validationErrors);
+
+  // Si des erreurs existent, arrêter
+  if (Object.keys(validationErrors).length > 0) {
     return;
   }
 
