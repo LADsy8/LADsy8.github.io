@@ -236,7 +236,11 @@ button:focus-visible {
 }
 
 [data-theme='dark'] .portfolio-wrapper {
-  background: radial-gradient(circle at top right, rgba(16, 18, 24, 0.98) 0%, rgba(10, 12, 18, 1) 100%) !important;
+  background: radial-gradient(
+    circle at top right,
+    rgba(16, 18, 24, 0.98) 0%,
+    rgba(10, 12, 18, 1) 100%
+  ) !important;
 }
 
 [data-theme='dark'] .profile-card,
