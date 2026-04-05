@@ -77,13 +77,15 @@ button:focus-visible {
 
 /* Thème sombre */
 [data-theme='dark'] {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #2d3436;
-  --text-primary: #ffffff;
-  --text-secondary: #adb5bd;
+  --bg-primary: #090b10;
+  --bg-secondary: #181d26;
+  --text-primary: #f7f9fc;
+  --text-secondary: #a7b0c2;
   --accent: #6c5ce7;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --border: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(32, 39, 54, 0.96);
+  --panel-bg: rgba(22, 27, 37, 0.98);
+  --surface-bg: rgba(24, 29, 40, 0.99);
+  --border: rgba(255, 255, 255, 0.12);
 }
 
 /* Thème clair (par défaut) */
@@ -210,6 +212,62 @@ button:focus-visible {
 
 [data-theme='dark'] .bg-white {
   background-color: var(--bg-primary) !important;
+}
+
+[data-theme='dark'] .portfolio-wrapper,
+[data-theme='dark'] .about-container,
+[data-theme='dark'] .contact-container,
+[data-theme='dark'] .projects-container,
+[data-theme='dark'] .skills-container,
+[data-theme='dark'] .timeline-content,
+[data-theme='dark'] .about-content,
+[data-theme='dark'] .contact-card,
+[data-theme='dark'] .profile-card,
+[data-theme='dark'] .category-card,
+[data-theme='dark'] .skill-category,
+[data-theme='dark'] .skill-item,
+[data-theme='dark'] .soft-skill-item,
+[data-theme='dark'] .repo-card,
+[data-theme='dark'] .repo-card .card-content,
+[data-theme='dark'] .repo-header {
+  background-color: var(--surface-bg) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme='dark'] .portfolio-wrapper {
+  background: radial-gradient(circle at top right, rgba(16, 18, 24, 0.98) 0%, rgba(10, 12, 18, 1) 100%) !important;
+}
+
+[data-theme='dark'] .profile-card,
+[data-theme='dark'] .contact-card,
+[data-theme='dark'] .category-card,
+[data-theme='dark'] .skill-category,
+[data-theme='dark'] .skill-item,
+[data-theme='dark'] .soft-skill-item,
+[data-theme='dark'] .repo-card {
+  background: var(--card-bg) !important;
+}
+
+[data-theme='dark'] .category-card:hover {
+  background: rgba(108, 92, 231, 0.22) !important;
+}
+
+[data-theme='dark'] .skill-category,
+[data-theme='dark'] .soft-skill-item,
+[data-theme='dark'] .repo-card {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.32) !important;
+}
+
+[data-theme='dark'] .contact-card {
+  background: var(--card-bg) !important;
+}
+
+[data-theme='dark'] .form-control,
+[data-theme='dark'] .contact-form .form-control {
+  background-color: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-primary);
 }
 
 /* Bouton toggle thème */

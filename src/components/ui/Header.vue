@@ -217,15 +217,44 @@ onMounted(() => {
 
 /* Dark mode mobile */
 [data-theme='dark'] .navbar-collapse {
-  background: rgba(45, 52, 54, 0.95);
+  background: rgba(18, 18, 18, 0.96);
   color: white;
+}
+
+[data-theme='dark'] .custom-navbar {
+  background: rgba(18, 18, 18, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .navbar-toggler .toggler-icon,
+[data-theme='dark'] .navbar-toggler .toggler-icon::before,
+[data-theme='dark'] .navbar-toggler .toggler-icon::after {
+  background: white;
 }
 
 [data-theme='dark'] .nav-link {
   color: var(--text-secondary) !important;
 }
 
+[data-theme='dark'] .nav-link:hover,
+[data-theme='dark'] .active-link {
+  color: var(--accent) !important;
+}
+
+[data-theme='dark'] .navbar-brand,
+[data-theme='dark'] .btn-contact,
+[data-theme='dark'] .theme-toggle {
+  color: white !important;
+}
+
 [data-theme='dark'] .btn-contact {
+  background: var(--accent);
+  border-color: var(--accent);
   box-shadow: 0 4px 15px rgba(108, 92, 231, 0.5);
+}
+
+[data-theme='dark'] .theme-toggle {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 </style>
