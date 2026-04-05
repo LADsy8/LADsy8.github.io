@@ -196,9 +196,20 @@ button:focus-visible {
   color: var(--text-secondary) !important;
 }
 
-[data-theme='dark'] .nav-link:hover,
-[data-theme='dark'] .active-link {
-  color: var(--accent) !important;
+[data-theme='dark'] .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme='dark'] .text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme='dark'] .bg-light {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme='dark'] .bg-white {
+  background-color: var(--bg-primary) !important;
 }
 
 /* Bouton toggle thème */
@@ -222,32 +233,52 @@ button:focus-visible {
   transform: scale(1.1);
 }
 
-/* Application du thème clair par défaut */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Application du thème à tous les éléments */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Couleurs de base pour tous les éléments */
+html, body, #app, .app-wrapper, .main-content {
+  background-color: var(--bg-primary);
   color: var(--text-primary);
 }
 
-p,
-span,
-div {
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
-.card,
-.contact-card,
-.about-section,
-.skills-section,
-.repos-section {
+/* Texte */
+p, span, div, li, td, th {
+  color: var(--text-primary);
+}
+
+/* Classes Bootstrap à surcharger */
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.bg-light {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-white {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Cartes et sections */
+.card, .contact-card, .about-section, .skills-section, .repos-section {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   color: var(--text-primary);
 }
 
+/* Liens */
 a:not(.nav-link):not(.navbar-brand) {
   color: var(--accent);
 }
@@ -256,6 +287,7 @@ a:not(.nav-link):not(.navbar-brand):hover {
   color: var(--text-primary);
 }
 
+/* Boutons */
 .btn:not(.theme-toggle) {
   background-color: var(--accent);
   border-color: var(--accent);
@@ -268,6 +300,7 @@ a:not(.nav-link):not(.navbar-brand):hover {
   color: var(--bg-primary);
 }
 
+/* Inputs */
 .form-control {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
@@ -285,10 +318,12 @@ a:not(.nav-link):not(.navbar-brand):hover {
   color: var(--text-primary);
 }
 
+/* Sections avec padding */
 .py-5 {
   background-color: var(--bg-primary);
 }
 
+/* Navbar */
 .navbar {
   background: rgba(248, 249, 250, 0.9);
   backdrop-filter: blur(12px);
@@ -303,7 +338,6 @@ a:not(.nav-link):not(.navbar-brand):hover {
   color: var(--text-secondary) !important;
 }
 
-.nav-link:hover,
-.active-link {
+.nav-link:hover, .active-link {
   color: var(--accent) !important;
 }
