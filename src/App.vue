@@ -14,7 +14,9 @@ import Footer from './components/ui/Footer.vue';
 </template>
 
 <style>
-html, body, #app {
+html,
+body,
+#app {
   margin: 0;
   padding: 0;
   width: 100%;

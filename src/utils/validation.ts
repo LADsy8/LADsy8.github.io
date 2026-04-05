@@ -49,9 +49,9 @@ export const validateContactForm = (form: {
   }
 
   if (!isNotEmpty(form.email)) {
-    errors.email = 'L\'email est requis';
+    errors.email = "L'email est requis";
   } else if (!isValidEmail(form.email)) {
-    errors.email = 'L\'email n\'est pas valide';
+    errors.email = "L'email n'est pas valide";
   }
 
   if (!isNotEmpty(form.subject)) {

@@ -11,7 +11,7 @@ const { repos: allRepos, loading, fetchUserRepos } = useGithub();
 const categoriesConfig = {
   school: ['ecole', 'school', 'academic', 'université', 'college'],
   personal: ['personnel', 'personal', 'projet', 'expérimentation'],
-  all: []
+  all: [],
 };
 
 /**
@@ -75,10 +75,13 @@ onMounted(() => {
                   <span>⭐ {{ repo.stargazers_count }}</span>
                 </div>
               </div>
-              
+
               <h3 class="repo-name">{{ repo.name }}</h3>
               <p class="repo-description">
-                {{ repo.description || 'Exploration technique et développement de fonctionnalités innovantes.' }}
+                {{
+                  repo.description ||
+                  'Exploration technique et développement de fonctionnalités innovantes.'
+                }}
               </p>
 
               <div class="repo-footer">
@@ -129,7 +132,7 @@ onMounted(() => {
 .repo-card {
   background: white;
   border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -137,7 +140,7 @@ onMounted(() => {
 
 .repo-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   border-color: #6c5ce7;
 }
 
@@ -155,8 +158,14 @@ onMounted(() => {
   margin-bottom: 1.2rem;
 }
 
-.folder-icon { font-size: 1.5rem; }
-.repo-stats { font-size: 0.85rem; color: #b2bec3; font-weight: 600; }
+.folder-icon {
+  font-size: 1.5rem;
+}
+.repo-stats {
+  font-size: 0.85rem;
+  color: #b2bec3;
+  font-weight: 600;
+}
 
 .repo-name {
   font-size: 1.25rem;
@@ -222,12 +231,22 @@ onMounted(() => {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 576px) {
-  .section-title { font-size: 1.8rem; }
-  .card-content { padding: 1.2rem; }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .card-content {
+    padding: 1.2rem;
+  }
 }
 </style>

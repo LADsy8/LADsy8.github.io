@@ -10,7 +10,11 @@
       <div class="row align-items-center mb-5">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="about-image-container">
-            <img src="https://via.placeholder.com/400x400/6c5ce7/ffffff?text=Votre+Photo" alt="Ma photo" class="about-image">
+            <img
+              src="https://via.placeholder.com/400x400/6c5ce7/ffffff?text=Votre+Photo"
+              alt="Ma photo"
+              class="about-image"
+            />
             <div class="image-overlay">
               <span class="overlay-text">Développeur Passionné</span>
             </div>
@@ -20,12 +24,13 @@
           <div class="about-content">
             <h3 class="mb-3">Qui suis-je ?</h3>
             <p class="mb-3">
-              Étudiant en informatique, je suis passionné par le développement web et les technologies modernes.
-              Mon objectif est de créer des applications web performantes et accessibles.
+              Étudiant en informatique, je suis passionné par le développement web et les
+              technologies modernes. Mon objectif est de créer des applications web performantes et
+              accessibles.
             </p>
             <p class="mb-4">
-              Actuellement en formation, je cherche à acquérir de l'expérience professionnelle pour appliquer
-              mes connaissances théoriques dans un environnement réel.
+              Actuellement en formation, je cherche à acquérir de l'expérience professionnelle pour
+              appliquer mes connaissances théoriques dans un environnement réel.
             </p>
             <div class="stats-row d-flex justify-content-between">
               <div class="stat">
@@ -53,7 +58,10 @@
             <div class="timeline-content">
               <h4>2024 - Présent</h4>
               <h5>Étudiant en Techniques Informatiques</h5>
-              <p>Formation intensive en développement web, bases de données, et programmation orientée objet.</p>
+              <p>
+                Formation intensive en développement web, bases de données, et programmation
+                orientée objet.
+              </p>
             </div>
           </div>
           <div class="timeline-item">
@@ -94,7 +102,7 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .about-image {
@@ -133,7 +141,7 @@
   background: white;
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .stat {
@@ -192,7 +200,7 @@
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-content h4 {
@@ -212,15 +220,31 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .about-image { height: 300px; }
-  .timeline::before { left: 20px; }
-  .timeline-item { padding-left: 60px; }
-  .timeline-marker { left: 10px; }
+  .section-title {
+    font-size: 2rem;
+  }
+  .about-image {
+    height: 300px;
+  }
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    padding-left: 60px;
+  }
+  .timeline-marker {
+    left: 10px;
+  }
 }
 </style>

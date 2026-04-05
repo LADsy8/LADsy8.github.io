@@ -131,7 +131,7 @@ const tools = ref([
 ]);
 
 const softSkills = ref([
-  'Travail d\'équipe',
+  "Travail d'équipe",
   'Résolution de problèmes',
   'Apprentissage rapide',
   'Communication',
@@ -286,13 +286,25 @@ const softSkills = ref([
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .skill-category { padding: 1.5rem; }
-  .skills-grid { gap: 0.8rem; }
+  .section-title {
+    font-size: 2rem;
+  }
+  .skill-category {
+    padding: 1.5rem;
+  }
+  .skills-grid {
+    gap: 0.8rem;
+  }
 }
 </style>

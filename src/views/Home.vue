@@ -17,15 +17,25 @@ onMounted(() => {
         <div class="underline mx-auto"></div>
       </header>
 
-      <div v-if="githubProfile" class="profile-card mx-auto p-4 mb-5 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+      <div
+        v-if="githubProfile"
+        class="profile-card mx-auto p-4 mb-5 shadow-lg"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <div class="profile-content">
           <div class="avatar-container">
-            <img :src="githubProfile.avatar_url" alt="Avatar" class="profile-avatar">
+            <img :src="githubProfile.avatar_url" alt="Avatar" class="profile-avatar" />
             <div class="status-badge"></div>
           </div>
           <h2 class="mt-3 fw-bold">{{ githubProfile.name || 'Développeur' }}</h2>
-          <p class="text-muted bio-text">{{ githubProfile.bio || 'Passionné par le développement web et les nouvelles technologies.' }}</p>
-          
+          <p class="text-muted bio-text">
+            {{
+              githubProfile.bio ||
+              'Passionné par le développement web et les nouvelles technologies.'
+            }}
+          </p>
+
           <div class="stats d-flex justify-content-center gap-4 mt-3">
             <div class="stat-item">
               <span class="d-block fw-bold">{{ githubProfile.public_repos }}</span>
@@ -42,11 +52,17 @@ onMounted(() => {
       <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
         <h3 class="mb-4 section-title">Explorez mon univers</h3>
         <div class="row justify-content-center g-4">
-          <div class="col-md-4 col-sm-6" v-for="(category, index) in [
-            { id: 'school', label: 'Projets Académiques', icon: '🎓' },
-            { id: 'personal', label: 'Projets Personnels', icon: '🚀' },
-            { id: 'all', label: 'Tous les Dépôts', icon: '📂' }
-          ]" :key="category.id" data-aos="zoom-in" :data-aos-delay="500 + index * 100">
+          <div
+            class="col-md-4 col-sm-6"
+            v-for="(category, index) in [
+              { id: 'school', label: 'Projets Académiques', icon: '🎓' },
+              { id: 'personal', label: 'Projets Personnels', icon: '🚀' },
+              { id: 'all', label: 'Tous les Dépôts', icon: '📂' },
+            ]"
+            :key="category.id"
+            data-aos="zoom-in"
+            :data-aos-delay="500 + index * 100"
+          >
             <router-link :to="`/repos/${category.id}`" class="category-card">
               <span class="icon">{{ category.icon }}</span>
               <span class="label">{{ category.label }}</span>
@@ -107,7 +123,7 @@ onMounted(() => {
   height: 140px;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .status-badge {
@@ -133,7 +149,7 @@ onMounted(() => {
   text-decoration: none;
   color: #2d3436;
   font-weight: 600;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
 }
@@ -156,12 +172,23 @@ onMounted(() => {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 767px) {
-  .gradient-text { font-size: 2rem; }
-  .profile-card { margin-left: 15px; margin-right: 15px; }
+  .gradient-text {
+    font-size: 2rem;
+  }
+  .profile-card {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 </style>

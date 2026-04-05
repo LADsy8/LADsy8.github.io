@@ -5,13 +5,13 @@
         <span class="brand-dot"></span> Mon Portfolio
       </router-link>
 
-      <button 
-        class="navbar-toggler" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav" 
-        aria-controls="navbarNav" 
-        aria-expanded="false" 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="toggler-icon"></span>
@@ -20,9 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item">
-            <router-link to="/" class="nav-link" active-class="active-link">
-              Accueil
-            </router-link>
+            <router-link to="/" class="nav-link" active-class="active-link"> Accueil </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/about" class="nav-link" active-class="active-link">
@@ -40,12 +38,14 @@
             </router-link>
           </li>
           <li class="nav-item ms-lg-3">
-            <router-link to="/contact" class="btn-contact">
-              Me contacter
-            </router-link>
+            <router-link to="/contact" class="btn-contact"> Me contacter </router-link>
           </li>
           <li class="nav-item ms-2">
-            <button @click="toggleTheme" class="theme-toggle" :aria-label="isDark ? 'Passer en mode clair' : 'Passer en mode sombre'">
+            <button
+              @click="toggleTheme"
+              class="theme-toggle"
+              :aria-label="isDark ? 'Passer en mode clair' : 'Passer en mode sombre'"
+            >
               <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
             </button>
           </li>
@@ -160,7 +160,8 @@ onMounted(() => {
   position: relative;
 }
 
-.toggler-icon::before, .toggler-icon::after {
+.toggler-icon::before,
+.toggler-icon::after {
   content: '';
   width: 24px;
   height: 2px;
@@ -169,8 +170,12 @@ onMounted(() => {
   left: 0;
 }
 
-.toggler-icon::before { top: -7px; }
-.toggler-icon::after { top: 7px; }
+.toggler-icon::before {
+  top: -7px;
+}
+.toggler-icon::after {
+  top: 7px;
+}
 
 /* Responsive tweaks */
 @media (max-width: 991px) {
@@ -179,11 +184,11 @@ onMounted(() => {
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1000;
   }
-  
+
   .nav-item {
     width: 100%;
     text-align: center;
@@ -211,16 +216,16 @@ onMounted(() => {
 }
 
 /* Dark mode mobile */
-[data-theme="dark"] .navbar-collapse {
+[data-theme='dark'] .navbar-collapse {
   background: rgba(45, 52, 54, 0.95);
   color: white;
 }
 
-[data-theme="dark"] .nav-link {
+[data-theme='dark'] .nav-link {
   color: var(--text-secondary) !important;
 }
 
-[data-theme="dark"] .btn-contact {
+[data-theme='dark'] .btn-contact {
   box-shadow: 0 4px 15px rgba(108, 92, 231, 0.5);
 }
 </style>

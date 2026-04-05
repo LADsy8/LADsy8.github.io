@@ -28,13 +28,28 @@
           <div class="footer-social">
             <h4>Me Suivre</h4>
             <div class="social-icons">
-              <a href="https://github.com/ladsy8" target="_blank" class="social-link" aria-label="GitHub">
+              <a
+                href="https://github.com/ladsy8"
+                target="_blank"
+                class="social-link"
+                aria-label="GitHub"
+              >
                 <i class="fab fa-github"></i>
               </a>
-              <a href="https://linkedin.com/in/votreprofil" target="_blank" class="social-link" aria-label="LinkedIn">
+              <a
+                href="https://linkedin.com/in/votreprofil"
+                target="_blank"
+                class="social-link"
+                aria-label="LinkedIn"
+              >
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a href="https://twitter.com/votrecompte" target="_blank" class="social-link" aria-label="Twitter">
+              <a
+                href="https://twitter.com/votrecompte"
+                target="_blank"
+                class="social-link"
+                aria-label="Twitter"
+              >
                 <i class="fab fa-twitter"></i>
               </a>
             </div>
@@ -45,14 +60,12 @@
         </div>
       </div>
 
-      <hr class="footer-divider">
+      <hr class="footer-divider" />
 
       <div class="footer-bottom">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p class="copyright mb-0">
-              &copy; 2024 Mon Portfolio. Tous droits réservés.
-            </p>
+            <p class="copyright mb-0">&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
           </div>
           <div class="col-md-6 text-md-end">
             <p class="footer-note mb-0">

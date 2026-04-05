@@ -3,7 +3,9 @@
     <div class="container">
       <div class="text-center mb-5 fade-in">
         <h2 class="section-title">Me Contacter</h2>
-        <p class="text-muted">N'hésitez pas à me contacter pour discuter de projets ou d'opportunités</p>
+        <p class="text-muted">
+          N'hésitez pas à me contacter pour discuter de projets ou d'opportunités
+        </p>
         <div class="header-line"></div>
       </div>
 
@@ -52,7 +54,11 @@
                       <a href="https://github.com/ladsy8" target="_blank" class="social-link">
                         <i class="fab fa-github"></i>
                       </a>
-                      <a href="https://linkedin.com/in/votreprofil" target="_blank" class="social-link">
+                      <a
+                        href="https://linkedin.com/in/votreprofil"
+                        target="_blank"
+                        class="social-link"
+                      >
                         <i class="fab fa-linkedin"></i>
                       </a>
                       <a href="https://twitter.com/votrecompte" target="_blank" class="social-link">
@@ -75,7 +81,7 @@
                       v-model="form.name"
                       :class="{ 'is-invalid': errors.name }"
                       required
-                    >
+                    />
                     <div class="invalid-feedback" v-if="errors.name">{{ errors.name }}</div>
                   </div>
 
@@ -88,7 +94,7 @@
                       v-model="form.email"
                       :class="{ 'is-invalid': errors.email }"
                       required
-                    >
+                    />
                     <div class="invalid-feedback" v-if="errors.email">{{ errors.email }}</div>
                   </div>
 
@@ -101,7 +107,7 @@
                       v-model="form.subject"
                       :class="{ 'is-invalid': errors.subject }"
                       required
-                    >
+                    />
                     <div class="invalid-feedback" v-if="errors.subject">{{ errors.subject }}</div>
                   </div>
 
@@ -122,12 +128,14 @@
                     <span v-if="isSubmitting">
                       <i class="fas fa-spinner fa-spin me-2"></i>Envoi en cours...
                     </span>
-                    <span v-else>
-                      <i class="fas fa-paper-plane me-2"></i>Envoyer le message
-                    </span>
+                    <span v-else> <i class="fas fa-paper-plane me-2"></i>Envoyer le message </span>
                   </button>
 
-                  <div v-if="submitMessage" class="alert mt-3" :class="submitMessage.type === 'success' ? 'alert-success' : 'alert-danger'">
+                  <div
+                    v-if="submitMessage"
+                    class="alert mt-3"
+                    :class="submitMessage.type === 'success' ? 'alert-success' : 'alert-danger'"
+                  >
                     {{ submitMessage.text }}
                   </div>
                 </form>
@@ -202,7 +210,7 @@ const handleSubmit = async () => {
   } catch (error) {
     submitMessage.value = {
       type: 'error',
-      text: 'Erreur lors de l\'envoi du message. Veuillez réessayer.',
+      text: "Erreur lors de l'envoi du message. Veuillez réessayer.",
     };
   } finally {
     isSubmitting.value = false;
@@ -235,7 +243,7 @@ const handleSubmit = async () => {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 3rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   color: #2d3436;
 }
 
@@ -350,13 +358,26 @@ const handleSubmit = async () => {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .contact-card { padding: 2rem; }
-  .info-item { flex-direction: column; text-align: center; }
+  .section-title {
+    font-size: 2rem;
+  }
+  .contact-card {
+    padding: 2rem;
+  }
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 </style>
