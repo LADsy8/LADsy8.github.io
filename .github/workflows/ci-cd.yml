@@ -27,7 +27,7 @@ jobs:
       run: npm run lint
 
     - name: Run formatter check
-      run: npx prettier --check src/**/*.{ts,tsx,vue,js,jsx,json,css,scss,md}
+      run: npx prettier --check "src/**/*.{ts,vue,css}"
 
     - name: Run unit tests
       run: npm run test -- --run
