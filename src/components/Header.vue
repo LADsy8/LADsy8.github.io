@@ -1,17 +1,36 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Mon Portfolio</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+    <div class="container">
+      <router-link class="navbar-brand fw-bold" to="/">
+        <span class="brand-dot"></span> Mon Portfolio
+      </router-link>
+
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav" data-mdb-animation-init >
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item active">
-            <router-link to="/" class="nav-link">Accueil</router-link>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link" active-class="active-link">
+              Accueil
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/repos/all" class="nav-link">Projets</router-link>
+            <router-link to="/repos/all" class="nav-link" active-class="active-link">
+              Projets
+            </router-link>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a href="mailto:ton-email@exemple.com" class="btn-contact">Me contacter</a>
           </li>
         </ul>
       </div>
@@ -20,15 +39,128 @@
 </template>
 
 <style scoped>
-@media (max-width: 767px) {
-  .navbar-toggler {
-    display: block !important;
-  }
+/* Effet Glassmorphism sur la Nav */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .navbar-toggler {
-    display: none !important;
+/* Style du Logo */
+.navbar-brand {
+  font-size: 1.4rem;
+  color: #2d3436 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background: #6c5ce7;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Liens de navigation */
+.nav-link {
+  color: #636e72 !important;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem !important;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #6c5ce7 !important;
+}
+
+/* Indicateur de page active */
+.active-link {
+  color: #6c5ce7 !important;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 1.2rem;
+  right: 1.2rem;
+  height: 2px;
+  background: #6c5ce7;
+  border-radius: 2px;
+}
+
+/* Bouton Contact style moderne */
+.btn-contact {
+  background: #6c5ce7;
+  color: white !important;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.btn-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+/* Customisation du Toggler (Menu mobile) */
+.navbar-toggler {
+  border: none;
+  padding: 0;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.toggler-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #2d3436;
+  position: relative;
+}
+
+.toggler-icon::before, .toggler-icon::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: #2d3436;
+  position: absolute;
+  left: 0;
+}
+
+.toggler-icon::before { top: -7px; }
+.toggler-icon::after { top: 7px; }
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: white;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .btn-contact {
+    display: inline-block;
+    margin-top: 10px;
   }
 }
 </style>
