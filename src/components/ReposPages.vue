@@ -1,148 +1,220 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const allRepos = ref<any[]>([]); // Repos non filtrés
-const schoolRepos = ref<any[]>([]); // Repos avec 'ecole' dans la description
-const personalRepos = ref<any[]>([]); // Repos avec 'personnel' dans la description
+const allRepos = ref<any[]>([]);
+const loading = ref(true);
 
-const fetchRepos = async (category: string) => {
-  let url = `https://api.github.com/users/ladsy8/repos`; // URL de base pour tous les repos
-
+const fetchRepos = async () => {
   try {
-    // Récupérer tous les repos
-    const response = await fetch(url);
-    const data = await response.json();
-    allRepos.value = data;  // Stocke tous les repos
-
-    // Filtrer les repos par mots-clés dans la description
-    schoolRepos.value = data.filter((repo: any) =>
-      repo.description && repo.description.toLowerCase().includes("ecole")
-    );
-
-    personalRepos.value = data.filter((repo: any) =>
-      repo.description && repo.description.toLowerCase().includes("personnel")
-    );
-
-    // Si la catégorie est 'school', on n'affiche que les repos scolaires
-    if (category === 'school') {
-      schoolRepos.value = data.filter((repo: any) =>
-        repo.description && repo.description.toLowerCase().includes("ecole")
-      );
-      personalRepos.value = []; // On vide la catégorie personnelle
-    }
-    // Si la catégorie est 'personal', on n'affiche que les repos personnels
-    else if (category === 'personal') {
-      personalRepos.value = data.filter((repo: any) =>
-        repo.description && repo.description.toLowerCase().includes("personnel")
-      );
-      schoolRepos.value = []; // On vide la catégorie scolaire
-    }
-    // Si la catégorie est 'all', on affiche tous les repos sans filtrer
-    else if (category === 'all') {
-      schoolRepos.value = []; // On vide la catégorie scolaire
-      personalRepos.value = []; // On vide la catégorie personnelle
-    }
-
+    const response = await fetch(`https://api.github.com/users/ladsy8/repos?sort=updated`);
+    allRepos.value = await response.json();
   } catch (error) {
-    console.error('Erreur lors de la récupération des repos:', error);
+    console.error('Erreur:', error);
+  } finally {
+    loading.value = false;
   }
 };
 
-onMounted(() => {
+// Logique de filtrage simplifiée et réactive
+const filteredRepos = computed(() => {
   const category = route.params.category as string;
-  fetchRepos(category); // Appeler la fonction de récupération des repos
+  
+  if (category === 'school') {
+    return allRepos.value.filter(repo => repo.description?.toLowerCase().includes("ecole"));
+  } else if (category === 'personal') {
+    return allRepos.value.filter(repo => repo.description?.toLowerCase().includes("personnel"));
+  }
+  return allRepos.value;
 });
+
+const getCategoryTitle = computed(() => {
+  const category = route.params.category;
+  if (category === 'school') return 'Projets Académiques';
+  if (category === 'personal') return 'Projets Personnels';
+  return 'Tous mes Projets';
+});
+
+onMounted(fetchRepos);
 </script>
 
 <template>
-  <div class="container py-5">
-    <h2 class="text-center mb-4">Liste des Repos</h2>
+  <div class="projects-container py-5">
+    <div class="container">
+      <div class="text-center mb-5 fade-in">
+        <h2 class="section-title">{{ getCategoryTitle }}</h2>
+        <p class="text-muted">Un aperçu de mon travail et de mes expérimentations</p>
+        <div class="header-line"></div>
+      </div>
 
-    <!-- Repos École -->
-    <div v-if="schoolRepos.length > 0">
-      <h3>Repos École</h3>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col" v-for="repo in schoolRepos" :key="repo.id">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">{{ repo.name }}</h5>
-              <p class="card-text">{{ repo.description || 'Aucune description disponible' }}</p>
-              <a :href="repo.html_url" class="btn btn-primary" target="_blank">Voir sur Github</a>
+      <div v-if="loading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+      </div>
+
+      <div v-else-if="filteredRepos.length > 0" class="row g-4 fade-in">
+        <div class="col-md-6 col-lg-4" v-for="repo in filteredRepos" :key="repo.id">
+          <div class="repo-card h-100">
+            <div class="card-content">
+              <div class="repo-header">
+                <span class="folder-icon">📂</span>
+                <div class="repo-stats">
+                  <span>⭐ {{ repo.stargazers_count }}</span>
+                </div>
+              </div>
+              
+              <h3 class="repo-name">{{ repo.name }}</h3>
+              <p class="repo-description">
+                {{ repo.description || 'Exploration technique et développement de fonctionnalités innovantes.' }}
+              </p>
+
+              <div class="repo-footer">
+                <div class="repo-lang" v-if="repo.language">
+                  <span class="lang-dot"></span> {{ repo.language }}
+                </div>
+                <a :href="repo.html_url" target="_blank" class="github-link">
+                  Voir le code <span class="arrow">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Repos Personnels -->
-    <div v-if="personalRepos.length > 0">
-      <h3>Repos Personnels</h3>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col" v-for="repo in personalRepos" :key="repo.id">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">{{ repo.name }}</h5>
-              <p class="card-text">{{ repo.description || 'Aucune description disponible' }}</p>
-              <a :href="repo.html_url" class="btn btn-primary" target="_blank">Voir sur Github</a>
-            </div>
-          </div>
+      <div v-else class="text-center py-5">
+        <div class="empty-state">
+          <span class="empty-icon">🔍</span>
+          <p>Aucun projet ne correspond à cette catégorie pour le moment.</p>
+          <router-link to="/repos/all" class="btn btn-outline-primary">Voir tout</router-link>
         </div>
       </div>
-    </div>
-
-    <!-- Tous les Repos -->
-    <div v-if="allRepos.length > 0 && schoolRepos.length === 0 && personalRepos.length === 0">
-      <h3>Tous les Repos</h3>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col" v-for="repo in allRepos" :key="repo.id">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">{{ repo.name }}</h5>
-              <p class="card-text">{{ repo.description || 'Aucune description disponible' }}</p>
-              <a :href="repo.html_url" class="btn btn-primary" target="_blank">Voir sur Github</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div v-else>
-      <p>Aucun repo trouvé pour cette catégorie.</p>
     </div>
   </div>
 </template>
 
 <style scoped>
-.card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour les cartes */
+.projects-container {
+  min-height: 90vh;
+  background-color: #f8f9fa;
 }
 
-.card-body {
-  padding: 20px;
+.section-title {
+  font-weight: 800;
+  color: #2d3436;
+  font-size: 2.5rem;
 }
 
-.card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
+.header-line {
+  width: 50px;
+  height: 4px;
+  background: #6c5ce7;
+  margin: 15px auto;
+  border-radius: 2px;
 }
 
-.card-text {
-  font-size: 1rem;
+/* Style de la Carte */
+.repo-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-@media (max-width: 767px) {
-  .card-body {
-    padding: 15px; /* Réduire le padding pour les écrans mobiles */
-  }
+.repo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: #6c5ce7;
+}
 
-  .card-title {
-    font-size: 1rem; /* Taille de texte réduite sur mobile */
-  }
+.card-content {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .card-text {
-    font-size: 0.9rem; /* Taille de texte réduite sur mobile */
-  }
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.folder-icon { font-size: 1.5rem; }
+.repo-stats { font-size: 0.85rem; color: #b2bec3; font-weight: 600; }
+
+.repo-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 0.8rem;
+  text-transform: capitalize;
+}
+
+.repo-description {
+  color: #636e72;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer de la carte */
+.repo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f2f6;
+}
+
+.repo-lang {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2d3436;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-dot {
+  width: 8px;
+  height: 8px;
+  background: #6c5ce7;
+  border-radius: 50%;
+}
+
+.github-link {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: gap 0.2s;
+}
+
+.github-link .arrow {
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.github-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 576px) {
+  .section-title { font-size: 1.8rem; }
+  .card-content { padding: 1.2rem; }
 }
 </style>
