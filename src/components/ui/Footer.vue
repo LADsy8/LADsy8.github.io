@@ -6,7 +6,7 @@
           <div class="footer-brand">
             <h3>Mon Portfolio</h3>
             <p class="footer-description">
-              Développeur passionné créant des expériences web modernes et innovantes.
+              Développeur passionné par l'automatisation et la création de projets innovants. N'hésitez pas à me contacter !
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@
               </a>
             </div>
             <div class="footer-contact mt-3">
-              <p><i class="fas fa-envelope me-2"></i>ton-email@exemple.com</p>
+              <p><i class="fas fa-envelope me-2"></i>dube.arthur@gmail.com</p>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
       <div class="footer-bottom">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p class="copyright mb-0">&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+            <p class="copyright mb-0">&copy; 2026 Mon Portfolio. Tous droits réservés.</p>
           </div>
           <div class="col-md-6 text-md-end">
             <p class="footer-note mb-0">
@@ -112,6 +112,7 @@
 .footer-links ul {
   padding: 0;
   margin: 0;
+  color:white;
 }
 
 .footer-link {
