@@ -85,7 +85,7 @@
 <style scoped>
 .footer {
   background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
-  color: #adb5bd;
+  color: white;
   padding: 3rem 0 1rem;
   margin-top: auto;
 }
@@ -99,6 +99,7 @@
 .footer-description {
   line-height: 1.6;
   margin-bottom: 0;
+  color: white;
 }
 
 .footer-links h4,
@@ -114,7 +115,7 @@
 }
 
 .footer-link {
-  color: #adb5bd;
+  color: white;
   text-decoration: none;
   display: block;
   padding: 0.25rem 0;
@@ -139,7 +140,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #adb5bd;
+  color: white;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -165,11 +166,11 @@
 }
 
 .copyright {
-  color: #6c757d;
+  color: #e9ecef;
 }
 
 .footer-note {
-  color: #6c757d;
+  color: #e9ecef;
 }
 
 .footer-note .text-danger {
