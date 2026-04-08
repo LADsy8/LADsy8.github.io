@@ -155,6 +155,7 @@
 .footer-contact p {
   margin: 0;
   font-size: 0.9rem;
+  color:white;
 }
 
 .footer-divider {
