@@ -107,16 +107,16 @@
 import { ref } from 'vue';
 
 const programmingLanguages = ref([
-  { name: 'JavaScript', icon: 'fab fa-js-square', level: 80 },
+  { name: 'JavaScript', icon: 'fab fa-js-square', level: 75 },
   { name: 'TypeScript', icon: 'fab fa-js-square', level: 75 },
-  { name: 'Python', icon: 'fab fa-python', level: 70 },
-  { name: 'Java', icon: 'fab fa-java', level: 60 },
-  { name: 'C#', icon: 'fab fa-microsoft', level: 55 },
+  { name: 'Python', icon: 'fab fa-python', level: 75 },
+  { name: 'Java', icon: 'fab fa-java', level: 80 },
+  { name: 'C#', icon: 'fab fa-microsoft', level: 65 },
 ]);
 
 const frameworks = ref([
   { name: 'Vue.js', icon: 'fab fa-vuejs', level: 80 },
-  { name: 'React', icon: 'fab fa-react', level: 65 },
+  { name: 'React', icon: 'fab fa-react', level: 70 },
   { name: 'Node.js', icon: 'fab fa-node-js', level: 70 },
   { name: 'Express.js', icon: 'fas fa-server', level: 65 },
   { name: 'Bootstrap', icon: 'fab fa-bootstrap', level: 85 },
@@ -124,10 +124,10 @@ const frameworks = ref([
 
 const tools = ref([
   { name: 'Git', icon: 'fab fa-git-alt', level: 75 },
-  { name: 'Docker', icon: 'fab fa-docker', level: 60 },
+  { name: 'Docker', icon: 'fab fa-docker', level: 80 },
   { name: 'VS Code', icon: 'fas fa-code', level: 90 },
-  { name: 'Figma', icon: 'fab fa-figma', level: 70 },
-  { name: 'MySQL', icon: 'fas fa-database', level: 65 },
+  { name: 'Figma', icon: 'fab fa-figma', level: 60 },
+  { name: 'MySQL', icon: 'fas fa-database', level: 80 },
 ]);
 
 const softSkills = ref([
