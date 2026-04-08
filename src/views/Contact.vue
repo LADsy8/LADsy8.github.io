@@ -24,7 +24,7 @@
                     </div>
                     <div class="info-content">
                       <h5>Email</h5>
-                      <p>ton-email@exemple.com</p>
+                      <p>dube.arthur@gmail.com</p>
                     </div>
                   </div>
 
@@ -34,7 +34,7 @@
                     </div>
                     <div class="info-content">
                       <h5>Téléphone</h5>
-                      <p>+33 6 XX XX XX XX</p>
+                      <p>4385062474</p>
                     </div>
                   </div>
 
@@ -44,7 +44,7 @@
                     </div>
                     <div class="info-content">
                       <h5>Localisation</h5>
-                      <p>Votre Ville, France</p>
+                      <p>Québec, Canada</p>
                     </div>
                   </div>
 
@@ -230,6 +230,10 @@ const handleSubmit = async () => {
   font-size: 2.5rem;
 }
 
+.text-muted {
+  color: white !important;
+}
+
 .header-line {
   width: 50px;
   height: 4px;
@@ -239,81 +243,46 @@ const handleSubmit = async () => {
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  color: #2d3436;
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .contact-info h3 {
-  color: #2d3436;
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 2rem;
-}
-
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-}
-
-.info-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
 .info-content h5 {
   font-weight: 600;
   margin-bottom: 5px;
-  color: #2d3436;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .info-content p {
   margin: 0;
-  color: #636e72;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .social-links h5 {
   font-weight: 600;
   margin-bottom: 15px;
-  color: #2d3436;
-}
-
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.social-link:hover {
-  transform: scale(1.1);
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .contact-form .form-label {
   font-weight: 600;
-  color: #2d3436;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .contact-form .form-control {
