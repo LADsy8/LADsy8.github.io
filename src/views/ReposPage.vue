@@ -111,29 +111,32 @@ onMounted(() => {
 <style scoped>
 .projects-container {
   min-height: 90vh;
-  background-color: #f8f9fa;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.3s ease;
 }
 
 .section-title {
   font-weight: 800;
-  color: #2d3436;
+  color: var(--text-primary);
   font-size: 2.5rem;
+  transition: color 0.3s ease;
 }
 
 .header-line {
   width: 50px;
   height: 4px;
-  background: #6c5ce7;
+  background: var(--accent);
   margin: 15px auto;
   border-radius: 2px;
+  transition: background 0.3s ease;
 }
 
 /* Style de la Carte */
 .repo-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, background 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -141,7 +144,7 @@ onMounted(() => {
 .repo-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: #6c5ce7;
+  border-color: var(--accent);
 }
 
 .card-content {
@@ -156,31 +159,37 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.2rem;
+  border: none !important;
 }
 
 .folder-icon {
   font-size: 1.5rem;
+  border:none;
 }
 .repo-stats {
   font-size: 0.85rem;
-  color: #b2bec3;
+  color: var(--text-secondary);
   font-weight: 600;
+  transition: color 0.3s ease;
+  border:none;
 }
 
 .repo-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2d3436;
+  color: var(--text-primary);
   margin-bottom: 0.8rem;
   text-transform: capitalize;
+  transition: color 0.3s ease;
 }
 
 .repo-description {
-  color: #636e72;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
   flex-grow: 1;
   margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
 }
 
 /* Footer de la carte */
@@ -189,31 +198,33 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  border-top: 1px solid #f1f2f6;
+  border: none;
 }
 
 .repo-lang {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #2d3436;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 6px;
+  transition: color 0.3s ease;
 }
 
 .lang-dot {
   width: 8px;
   height: 8px;
-  background: #6c5ce7;
+  background: var(--accent);
   border-radius: 50%;
+  transition: background 0.3s ease;
 }
 
 .github-link {
-  color: #6c5ce7;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: gap 0.2s;
+  transition: color 0.2s ease, gap 0.2s;
 }
 
 .github-link .arrow {
