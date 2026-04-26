@@ -12,11 +12,11 @@
           <div class="about-image-container">
             <img
               src="https://media.licdn.com/dms/image/v2/D4E35AQFy-PspJobh9A/profile-framedphoto-shrink_800_800/B4EZ2wuFXVKYAg-/0/1776786364176?e=1777827600&v=beta&t=BFDNv13bJDsWApjl7UCtCTqnWqGXcCaG5n9ruEuoiIA"
-              alt="Ma photo"
+              alt="Photo tirée de LinkedIn"
               class="about-image"
             />
             <div class="image-overlay">
-              <span class="overlay-text">Développeur Passionné</span>
+              <span class="overlay-text">Développeur Full Stack Junior, Un des créateurs de Air-Métique.</span>
             </div>
           </div>
         </div>

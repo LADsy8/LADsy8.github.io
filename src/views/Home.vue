@@ -28,11 +28,11 @@ onMounted(() => {
             <img :src="githubProfile.avatar_url" alt="Avatar" class="profile-avatar" />
             <div class="status-badge"></div>
           </div>
-          <h2 class="mt-3 fw-bold">{{ githubProfile.name || 'Développeur' }}</h2>
+          <h2 class="mt-3 fw-bold">{{ githubProfile.name || 'Arthur Dubé'}}</h2>
           <p class="text-muted bio-text">
             {{
               githubProfile.bio ||
-              'Passionné par le développement web et les nouvelles technologies.'
+              'Développeur Full Stack Junior, Un des créateurs de Air-Métique.'
             }}
           </p>
 
