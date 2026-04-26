@@ -81,21 +81,24 @@
 <style scoped>
 .about-container {
   min-height: 90vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
 }
 
 .section-title {
   font-weight: 800;
-  color: #2d3436;
+  color: var(--text-primary);
   font-size: 2.5rem;
+  transition: color 0.3s ease;
 }
 
 .header-line {
   width: 50px;
   height: 4px;
-  background: #6c5ce7;
+  background: var(--accent);
   margin: 15px auto;
   border-radius: 2px;
+  transition: background 0.3s ease;
 }
 
 .about-image-container {
@@ -133,15 +136,17 @@
 }
 
 .about-content h3 {
-  color: #2d3436;
+  color: var(--text-primary);
   font-weight: 700;
+  transition: color 0.3s ease;
 }
 
 .stats-row {
-  background: white;
+  background: var(--card-bg);
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
 }
 
 .stat {
@@ -153,13 +158,15 @@
   display: block;
   font-size: 2rem;
   font-weight: 800;
-  color: #6c5ce7;
+  color: var(--accent);
+  transition: color 0.3s ease;
 }
 
 .stat-label {
   font-size: 0.9rem;
-  color: #636e72;
+  color: var(--text-secondary);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .timeline {
@@ -175,7 +182,8 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #6c5ce7;
+  background: var(--accent);
+  transition: background 0.3s ease;
 }
 
 .timeline-item {
@@ -190,29 +198,33 @@
   top: 10px;
   width: 20px;
   height: 20px;
-  background: #6c5ce7;
+  background: var(--accent);
   border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0 0 0 2px #6c5ce7;
+  border: 4px solid var(--bg-primary);
+  box-shadow: 0 0 0 2px var(--accent);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-content {
-  background: white;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
 }
 
 .timeline-content h4 {
-  color: #6c5ce7;
+  color: var(--accent);
   font-weight: 600;
   margin-bottom: 5px;
+  transition: color 0.3s ease;
 }
 
 .timeline-content h5 {
-  color: #2d3436;
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 .fade-in {
