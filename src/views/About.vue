@@ -11,7 +11,7 @@
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="about-image-container">
             <img
-              src="https://via.placeholder.com/400x400/6c5ce7/ffffff?text=Votre+Photo"
+              src="https://media.licdn.com/dms/image/v2/D4E35AQFy-PspJobh9A/profile-framedphoto-shrink_800_800/B4EZ2wuFXVKYAg-/0/1776786364176?e=1777827600&v=beta&t=BFDNv13bJDsWApjl7UCtCTqnWqGXcCaG5n9ruEuoiIA"
               alt="Ma photo"
               class="about-image"
             />
