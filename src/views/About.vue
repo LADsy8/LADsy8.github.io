@@ -10,9 +10,9 @@
       <div class="row align-items-center mb-5">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="about-image-container">
-            <img src="@/assets/1776786464860.jpg" alt="Arthur Dubé" class="about-image" />
+            <img src="../assets/1776786464860.jpg" alt="Arthur Dubé" class="about-image" />
             <div class="image-overlay">
-              <span class="overlay-text">Développeur Full Stack Junior, Un des créateurs de Air-Métique.</span>
+              <span class="overlay-text"></span>
             </div>
           </div>
         </div>
