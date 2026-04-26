@@ -10,7 +10,11 @@
       <div class="row align-items-center mb-5">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="about-image-container">
-            <img src="../assets/1776786464860.jpg" alt="Arthur Dubé" class="about-image" />
+           <img 
+              src="/photo-arthur.png" 
+              alt="Arthur Dubé" 
+              class="about-image" 
+            />
             <div class="image-overlay">
               <span class="overlay-text"></span>
             </div>
@@ -301,5 +305,11 @@
   .timeline-marker {
     left: 10px;
   }
+}
+
+.about-content h3 {
+  border: none !important;    /* Supprime les bordures */
+  outline: none !important;   /* Supprime le contour de sélection/focus */
+  box-shadow: none !important; /* Au cas où c'est une ombre qui ressemble à une bordure */
 }
 </style>

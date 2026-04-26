@@ -111,7 +111,7 @@ const programmingLanguages = ref([
   { name: 'TypeScript', icon: 'fab fa-js-square', level: 75 },
   { name: 'Python', icon: 'fab fa-python', level: 70 },
   { name: 'Java', icon: 'fab fa-java', level: 60 },
-  { name: 'C#', icon: 'fab fa-microsoft', level: 55 },
+  { name: 'C#', icon: 'fab fa-microsoft', level: 65 },
 ]);
 
 const frameworks = ref([

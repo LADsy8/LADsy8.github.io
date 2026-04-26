@@ -2,24 +2,26 @@
   <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
     <div class="container">
       <router-link class="navbar-brand fw-bold" to="/">
-        <span class="brand-dot"></span> Mon Portfolio
+        <span class="brand-dot"></span> Arthur Dubé
       </router-link>
 
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
+        @click="toggleMenu" 
+        :aria-expanded="isMenuOpen"
         aria-label="Toggle navigation"
       >
         <span class="toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div 
+        class="collapse navbar-collapse" 
+        :class="{ 'show': isMenuOpen }" 
+        id="navbarNav"
+      >
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
+          <li class="nav-item" @click="isMenuOpen = false">
             <router-link to="/" class="nav-link" active-class="active-link"> Accueil </router-link>
           </li>
           <li class="nav-item">
@@ -56,11 +58,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import {ref, onMounted } from 'vue';
 import { useTheme } from '../../composables/useTheme';
 
 const { isDark, toggleTheme, loadTheme } = useTheme();
+const isMenuOpen = ref(false);
 
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
 onMounted(() => {
   loadTheme();
 });
