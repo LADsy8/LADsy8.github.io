@@ -13,7 +13,7 @@ onMounted(() => {
   <div class="portfolio-wrapper">
     <div class="container py-5">
       <header class="text-center mb-5 fade-in" data-aos="fade-up">
-        <h1 class="display-4 fw-bold gradient-text">Bienvenue sur mon Portfolio</h1>
+        <h1 class="display-4 fw-bold gradient-text">Bienvenue sur mon portfolio Professionnelle</h1>
         <div class="underline mx-auto"></div>
       </header>
 
