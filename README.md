@@ -2,7 +2,7 @@
 
 Un portfolio moderne et responsive développé avec Vue.js 3, TypeScript et Vite, présentant mes compétences et projets en développement web.
 
-## 🚀 Fonctionnalités
+## Fonctionnalités
 
 - **Design Moderne** : Interface élégante avec animations AOS et mode sombre
 - **Responsive** : Optimisé pour tous les appareils (mobile, tablette, desktop)
@@ -12,7 +12,7 @@ Un portfolio moderne et responsive développé avec Vue.js 3, TypeScript et Vite
 - **Tests** : Tests unitaires (Vitest) et E2E (Playwright)
 - **CI/CD** : Pipeline GitHub Actions pour déploiement automatique
 
-## 🛠️ Technologies Utilisées
+## Technologies Utilisées
 
 ### Frontend
 - **Vue.js 3** - Framework JavaScript progressif
@@ -37,7 +37,7 @@ Un portfolio moderne et responsive développé avec Vue.js 3, TypeScript et Vite
 - **GitHub API** - Récupération des repositories
 - **EmailJS** - Envoi d'emails (formulaire de contact)
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 src/
@@ -64,7 +64,7 @@ src/
     └── style.css         # Variables CSS et thème
 ```
 
-## 🏃‍♂️ Démarrage Rapide
+## Démarrage Rapide
 
 ### Prérequis
 - Node.js 18+
@@ -94,7 +94,7 @@ npm run lint         # Linting du code
 npm run format       # Formatage avec Prettier
 ```
 
-## 🧪 Tests
+## Tests
 
 ### Tests Unitaires
 ```bash
@@ -108,7 +108,7 @@ npm run test:e2e
 ```
 Tests end-to-end avec Playwright (nécessite le serveur de dev en arrière-plan).
 
-## 🚀 Déploiement
+## Déploiement
 
 Le projet est configuré pour un déploiement automatique sur GitHub Pages via GitHub Actions.
 
@@ -121,7 +121,7 @@ npm run build
 # Déployer le contenu de dist/ sur votre hébergement
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Variables d'Environnement
 Créer un fichier `.env` à la racine :
@@ -143,14 +143,14 @@ VITE_GA_TRACKING_ID=votre_id_google_analytics
 - Ajuster les couleurs dans `src/style/style.css`
 - Configurer les compétences dans `src/views/Skills.vue`
 
-## 📊 Performance
+## Performance
 
 - **Lighthouse Score** : 95+ sur mobile et desktop
 - **Bundle Size** : ~120KB gzippé
 - **First Contentful Paint** : < 1s
 - **Time to Interactive** : < 2s
 
-## 🤝 Contribution
+## Contribution
 
 Les contributions sont les bienvenues ! Veuillez :
 
@@ -160,16 +160,16 @@ Les contributions sont les bienvenues ! Veuillez :
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
 
-## 📝 Licence
+## Licence
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-## 👨‍💻 Auteur
+##  Auteur
 
-**Votre Nom**
+**Arthur Dubé**
 - Portfolio : [https://votre-username.github.io](https://votre-username.github.io)
 - LinkedIn : [Votre profil LinkedIn](https://linkedin.com/in/votreprofil)
-- Email : votre-email@exemple.com
+- Email : dube.arthur@gmail.com
 
 ---
 
