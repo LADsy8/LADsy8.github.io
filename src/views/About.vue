@@ -24,9 +24,7 @@
           <div class="about-content">
             <h3 class="mb-3">Qui suis-je ?</h3>
             <p class="mb-3">
-              Étudiant en informatique, je suis passionné par le développement web et les
-              technologies modernes. Mon objectif est de créer des applications web performantes et
-              accessibles.
+              Étudiant en informatique, je suis passionné par tout les pans du développement logiciel, du front-end au back-end. J'aime relever des défis techniques et apprendre de nouvelles technologies pour créer des solutions innovantes.
             </p>
             <p class="mb-4">
               Actuellement en formation, je cherche à acquérir de l'expérience professionnelle pour
@@ -42,7 +40,7 @@
                 <span class="stat-label">Projets réalisés</span>
               </div>
               <div class="stat">
-                <span class="stat-number">5+</span>
+                <span class="stat-number">10+</span>
                 <span class="stat-label">Technologies maîtrisées</span>
               </div>
             </div>
@@ -51,29 +49,78 @@
       </div>
 
       <div class="timeline-section">
-        <h3 class="text-center mb-4">Mon Parcours</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>2024 - Présent</h4>
-              <h5>Étudiant en Techniques Informatiques</h5>
-              <p>
-                Formation intensive en développement web, bases de données, et programmation
-                orientée objet.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>2023</h4>
-              <h5>Début en Programmation</h5>
-              <p>Premiers pas dans le monde du code avec HTML, CSS, et JavaScript.</p>
-            </div>
-          </div>
-        </div>
+  <h3 class="text-center mb-4">Mon Parcours</h3>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4>Mai 2026</h4>
+        <h5>Fin du DEC en Informatique</h5>
+        <p>
+          Achèvement de la formation technique et obtention du diplôme au Cégep de Sainte-Foy.
+        </p>
       </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4>2026</h4>
+        <h5>Création de Air-Métique</h5>
+        <p>
+          Développement d'une solution innovante de surveillance de la qualité de l'air. 
+          Le projet a bénéficié d'une visibilité médiatique avec une entrevue à TVA.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4>2023 - 2026</h4>
+        <h5>Études en Informatique - Québec</h5>
+        <p>
+          Déménagement à Sainte-Foy pour poursuivre la technique au Cégep de Sainte-Foy. 
+          Spécialisation en programmation et développement de systèmes.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4>2022</h4>
+        <h5>Virage vers l'Informatique</h5>
+        <p>
+          Transition vers la technique en informatique au Cégep Édouard-Montpetit pour 
+          concrétiser mon intérêt pour les technologies.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4>2020</h4>
+        <h5>Entrée au Cégep Édouard-Montpetit</h5>
+        <p>Début des études collégiales en Sciences humaines.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4>2018</h4>
+        <h5>Premiers pas en Programmation</h5>
+        <p>
+          Premier contact avec le développement web lors d'un cours d'initiation au secondaire.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
     </div>
   </div>
 </template>
