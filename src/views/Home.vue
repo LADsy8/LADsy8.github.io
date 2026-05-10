@@ -50,26 +50,25 @@ onMounted(() => {
       </div>
 
       <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
-        <h3 class="mb-4 section-title">Explorez mon univers</h3>
-        <div class="row justify-content-center g-4">
-          <div
-            class="col-md-4 col-sm-6"
-            v-for="(category, index) in [
-              { id: 'school', label: 'Projets Académiques', icon: '🎓' },
-              { id: 'personal', label: 'Projets Personnels', icon: '🚀' },
-              { id: 'all', label: 'Tous les Dépôts', icon: '📂' },
-            ]"
-            :key="category.id"
-            data-aos="zoom-in"
-            :data-aos-delay="500 + index * 100"
-          >
-            <router-link :to="`/repos/${category.id}`" class="category-card">
-              <span class="icon">{{ category.icon }}</span>
-              <span class="label">{{ category.label }}</span>
-            </router-link>
-          </div>
-        </div>
-      </div>
+  <h3 class="mb-4 section-title">Explorez mon univers</h3>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-5 col-sm-6" data-aos="zoom-in" data-aos-delay="500">
+      <router-link to="/repos/all?view=featured" class="category-card featured-btn">
+        <span class="icon">✨</span>
+        <span class="label">Projets Vedettes</span>
+        <small class="text-muted-hover">Mes réalisations majeures</small>
+      </router-link>
+    </div>
+
+    <div class="col-md-5 col-sm-6" data-aos="zoom-in" data-aos-delay="600">
+      <router-link to="/repos/all?view=repos" class="category-card">
+        <span class="icon">📂</span>
+        <span class="label">Dépôts GitHub</span>
+        <small class="text-muted-hover">Explorations et code brut</small>
+      </router-link>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </template>
