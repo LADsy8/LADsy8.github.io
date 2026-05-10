@@ -3,12 +3,15 @@ import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useGithub } from '../composables/useGithub';
 import type { GitHubRepository } from '../types/github';
+import { watch } from 'vue';
+import { useRouter } from 'vue-router';
 
 const route = useRoute();
+const router = useRouter();
 const { repos: allRepos, loading, fetchUserRepos } = useGithub();
 
 // État pour basculer entre les vues
-const currentView = ref<'featured' | 'repos'>('featured');
+const currentView = ref<'featured' | 'repos'>((route.query.view as any) || 'featured');
 
 // Projets Vedettes (Tes pages complètes)
 const featuredProjects = ref([
@@ -48,6 +51,12 @@ const getCategoryTitle = computed(() => {
     case 'school': return 'Projets Académiques';
     case 'personal': return 'Projets Personnels';
     default: return 'Tous mes Projets';
+  }
+});
+
+watch(() => route.query.view, (newView) => {
+  if (newView) {
+    currentView.value = newView as 'featured' | 'repos';
   }
 });
 
