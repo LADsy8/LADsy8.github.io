@@ -1,0 +1,42 @@
+{
+  "projects": [
+    {
+      "id": "air-metique",
+      "title": "Air-Métique",
+      "subtitle": "Écosystème IoT intelligent de surveillance de l'air",
+      "context": "Projet de fin d'études (Synthèse) — Cégep de Sainte-Foy",
+      "client": "Revolv'Air",
+      "duration": "7 semaines (temps plein)",
+      "description": "Air-Métique résout le dilemme : 'Faut-il ouvrir les fenêtres ?'. Le système compare en temps réel les polluants intérieurs (via ESP32) et extérieurs (via l'API Revolv'Air) pour offrir des recommandations d'aération en moins de 10 secondes.",
+      "technologies": [
+        { "name": "C++ (LVGL)", "category": "IoT" },
+        { "name": ".NET C#", "category": "Backend" },
+        { "name": "React Native", "category": "Mobile" },
+        { "name": "Firebase", "category": "Cloud" }
+      ],
+      "hardware": [
+        "ESP32 (CYD) avec écran tactile",
+        "Capteur ENS160 (TVOC/eCO2)",
+        "Capteur BME680 (Climat)",
+        "Capteur PMSx003 (Particules fines)"
+      ],
+      "features": [
+        "Comparaison Intérieur/Extérieur en temps réel",
+        "Algorithme de recommandation intelligent",
+        "Notifications push critiques (< 10s)",
+        "Intégration complète Home Assistant",
+        "Configuration 'Zéro Code' pour l'utilisateur"
+      ],
+      "team": [
+        "Arthur Dubé (Team Lead & IoT)",
+        "Michael Anglehart (Backend)",
+        "Charles-Étienne Tremblay (Mobile)",
+        "Émil Bédard (IoT)"
+      ],
+      "links": {
+        "gitlab": "https://gitlab.com/C-E_Tremblay/projet-synthese-h2026",
+        "website": "https://airmetique.vercel.app/"
+      }
+    }
+  ]
+}
