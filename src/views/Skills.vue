@@ -110,24 +110,33 @@ const programmingLanguages = ref([
   { name: 'JavaScript', icon: 'fab fa-js-square', level: 80 },
   { name: 'TypeScript', icon: 'fab fa-js-square', level: 75 },
   { name: 'Python', icon: 'fab fa-python', level: 70 },
-  { name: 'Java', icon: 'fab fa-java', level: 60 },
-  { name: 'C#', icon: 'fab fa-microsoft', level: 65 },
+  { name: 'Java', icon: 'fab fa-java', level: 70 },
+  { name: 'C#', icon: 'fab fa-microsoft', level: 75 },
+  { name: 'C++', icon: 'fas fa-code', level: 75 },
+  { name: 'HTML/CSS', icon: 'fab fa-html5', level: 70 },
+  { name: 'VBA / Visual Basic', icon: 'fas fa-file-excel', level: 90 },
+  { name: 'GDScript', icon: 'fas fa-gamepad', level: 75 }
 ]);
 
 const frameworks = ref([
   { name: 'Vue.js', icon: 'fab fa-vuejs', level: 80 },
-  { name: 'React', icon: 'fab fa-react', level: 65 },
+  { name: 'React', icon: 'fab fa-react', level: 75 },
+  { name: 'React Native', icon: 'fab fa-react', level: 70 },
   { name: 'Node.js', icon: 'fab fa-node-js', level: 70 },
-  { name: 'Express.js', icon: 'fas fa-server', level: 65 },
+  { name: 'Express.js', icon: 'fas fa-server', level: 60 },
   { name: 'Bootstrap', icon: 'fab fa-bootstrap', level: 85 },
+  { name: 'Unity', icon: 'fab fa-unity', level: 65 }
 ]);
 
 const tools = ref([
-  { name: 'Git', icon: 'fab fa-git-alt', level: 75 },
-  { name: 'Docker', icon: 'fab fa-docker', level: 60 },
-  { name: 'VS Code', icon: 'fas fa-code', level: 90 },
+  { name: 'Git', icon: 'fab fa-git-alt', level: 80 },
+  { name: 'Docker', icon: 'fab fa-docker', level: 75 },
+  { name: 'VS Code', icon: 'fas fa-code', level: 99 },
   { name: 'Figma', icon: 'fab fa-figma', level: 70 },
-  { name: 'MySQL', icon: 'fas fa-database', level: 65 },
+  { name: 'MySQL / SQL', icon: 'fas fa-database', level: 60},
+  { name: 'Postman API', icon: 'fas fa-exchange-alt', level: 75 },
+  { name: 'Microsoft Power BI', icon: 'fas fa-chart-bar', level: 80 },
+  { name: 'Power Automate', icon: 'fas fa-cogs', level: 60 }
 ]);
 
 const softSkills = ref([
