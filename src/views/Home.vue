@@ -25,7 +25,7 @@ onMounted(() => {
       >
         <div class="profile-content">
           <div class="avatar-container">
-            <img :src="githubProfile.avatar_url" alt="Avatar" class="profile-avatar" />
+            <img src="../assets/1776786464860.jpg" alt="Avatar" class="profile-avatar" />
             <div class="status-badge"></div>
           </div>
           <h2 class="mt-3 fw-bold">{{ 'Arthur Dubé'}}</h2>
