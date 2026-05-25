@@ -37,21 +37,14 @@
                 <i class="fab fa-github"></i>
               </a>
               <a
-                href="https://linkedin.com/in/votreprofil"
+                href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/"
                 target="_blank"
                 class="social-link"
                 aria-label="LinkedIn"
               >
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a
-                href="https://twitter.com/votrecompte"
-                target="_blank"
-                class="social-link"
-                aria-label="Twitter"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
+              
             </div>
             <div class="footer-contact mt-3">
               <p><i class="fas fa-envelope me-2"></i>dube.arthur@gmail.com</p>

@@ -12,6 +12,7 @@ const routes = [
   { path: '/skills', component: Skills },
   { path: '/contact', component: Contact },
   { path: '/repos/:category', component: ReposPage },
+  { path: '/project/:id', component: () => import('../views/ProjectDetails.vue'), name: 'ProjectDetails'}
 ];
 
 const router = createRouter({

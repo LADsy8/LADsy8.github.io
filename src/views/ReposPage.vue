@@ -1,26 +1,28 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, onMounted, computed, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { useGithub } from '../composables/useGithub';
 import type { GitHubRepository } from '../types/github';
+import projectsData from '../assets/data/projects.json';
 
 const route = useRoute();
+const router = useRouter();
 const { repos: allRepos, loading, fetchUserRepos } = useGithub();
 
 // État pour basculer entre les vues
-const currentView = ref<'featured' | 'repos'>('featured');
+const currentView = ref<'featured' | 'repos'>((route.query.view as any) || 'featured');
 
 // Projets Vedettes (Tes pages complètes)
-const featuredProjects = ref([
-  {
-    id: 'air-metique',
-    name: 'Air-Métique',
-    description: 'Solution IoT complète de surveillance de la qualité de l\'air. Inclut une station physique (ESP32) et une application mobile de visualisation.',
-    language: 'Vue.js / C++',
-    link: '/project/air-metique',
-    icon: '🚀'
-  }
-]);
+const featuredProjects = computed(() => {
+  return projectsData.projects.map(project => ({
+    id: project.id,
+    name: project.title,
+    description: project.subtitle, // On utilise le sous-titre pour la version carte
+    language: project.technologies.map(t => t.name).join(' / '), // Concatène les technos
+    link: `/project/${project.id}`,
+    icon: project.id === 'air-metique' ? '🚀' : '📂' // Icone selon l'ID
+  }));
+});
 
 const categoriesConfig = {
   school: ['ecole', 'school', 'academic', 'université', 'college'],
@@ -51,6 +53,19 @@ const getCategoryTitle = computed(() => {
   }
 });
 
+const setView = (view: 'featured' | 'repos') => {
+  currentView.value = view;
+  router.push({ 
+    query: { ...route.query, view: view } 
+  });
+};
+
+watch(() => route.query.view, (newView) => {
+  if (newView) {
+    currentView.value = newView as 'featured' | 'repos';
+  }
+});
+
 onMounted(() => {
   fetchUserRepos();
 });
@@ -67,16 +82,16 @@ onMounted(() => {
 
       <div class="view-toggle mb-5 fade-in">
         <button 
-          @click="currentView = 'featured'" 
-          :class="['btn-toggle', { active: currentView === 'featured' }]"
-        >
-          ✨ Projets Vedettes
+            @click="setView('featured')" 
+            :class="['btn-toggle', { active: currentView === 'featured' }]"
+          >
+            ✨ Projets Vedettes
         </button>
         <button 
-          @click="currentView = 'repos'" 
-          :class="['btn-toggle', { active: currentView === 'repos' }]"
-        >
-          <i class="fab fa-github"></i> Dépôts GitHub
+            @click="setView('repos')" 
+            :class="['btn-toggle', { active: currentView === 'repos' }]"
+          >
+            <i class="fab fa-github"></i> Dépôts GitHub
         </button>
       </div>
 

@@ -55,15 +55,13 @@
                         <i class="fab fa-github"></i>
                       </a>
                       <a
-                        href="https://linkedin.com/in/votreprofil"
+                        href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/"
                         target="_blank"
                         class="social-link"
                       >
                         <i class="fab fa-linkedin"></i>
                       </a>
-                      <a href="https://twitter.com/votrecompte" target="_blank" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                      </a>
+                      
                     </div>
                   </div>
                 </div>

@@ -13,7 +13,7 @@ onMounted(() => {
   <div class="portfolio-wrapper">
     <div class="container py-5">
       <header class="text-center mb-5 fade-in" data-aos="fade-up">
-        <h1 class="display-4 fw-bold gradient-text">Bienvenue sur mon portfolio professionnelle</h1>
+        <h1 class="display-4 fw-bold gradient-text">Bienvenue sur mon portfolio professionnel</h1>
         <div class="underline mx-auto"></div>
       </header>
 
@@ -25,7 +25,7 @@ onMounted(() => {
       >
         <div class="profile-content">
           <div class="avatar-container">
-            <img :src="githubProfile.avatar_url" alt="Avatar" class="profile-avatar" />
+            <img src="../assets/1776786464860.jpg" alt="Avatar" class="profile-avatar" />
             <div class="status-badge"></div>
           </div>
           <h2 class="mt-3 fw-bold">{{ 'Arthur Dubé'}}</h2>
