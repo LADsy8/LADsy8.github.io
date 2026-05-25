@@ -170,7 +170,3 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 - Portfolio : [https://votre-username.github.io](https://votre-username.github.io)
 - LinkedIn : [Votre profil LinkedIn](https://linkedin.com/in/votreprofil)
 - Email : dube.arthur@gmail.com
-
----
-
-⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile !
