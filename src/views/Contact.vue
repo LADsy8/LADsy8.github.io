@@ -203,12 +203,12 @@ const handleSubmit = async () => {
 
     submitMessage.value = {
       type: 'success',
-      text: 'Message envoyé avec succès ! Je vous répondrai bientôt.',
+      text: '',
     };
   } catch (error) {
     submitMessage.value = {
       type: 'error',
-      text: "Erreur lors de l'envoi du message. Veuillez réessayer.",
+      text: "",
     };
   } finally {
     isSubmitting.value = false;
@@ -217,134 +217,5 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
-.contact-container {
-  min-height: 90vh;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: white;
-}
 
-.section-title {
-  font-weight: 800;
-  font-size: 2.5rem;
-}
-
-.text-muted {
-  color: white !important;
-}
-
-.header-line {
-  width: 50px;
-  height: 4px;
-  background: white;
-  margin: 15px auto;
-  border-radius: 2px;
-}
-
-.contact-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 3rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  color: var(--text-primary);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.contact-info h3 {
-  color: var(--text-primary);
-  font-weight: 700;
-  margin-bottom: 2rem;
-  transition: color 0.3s ease;
-}
-
-.info-content h5 {
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: var(--text-primary);
-  transition: color 0.3s ease;
-}
-
-.info-content p {
-  margin: 0;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.social-links h5 {
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--text-primary);
-  transition: color 0.3s ease;
-}
-
-.contact-form .form-label {
-  font-weight: 600;
-  color: var(--text-primary);
-  transition: color 0.3s ease;
-}
-
-.contact-form .form-control {
-  border: 2px solid #e9ecef;
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.contact-form .form-control:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border: none;
-  border-radius: 10px;
-  padding: 12px 24px;
-  font-weight: 600;
-  transition: transform 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #5a6fd8, #6a4190);
-}
-
-.btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.alert {
-  border-radius: 10px;
-  border: none;
-}
-
-.fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-  .contact-card {
-    padding: 2rem;
-  }
-  .info-item {
-    flex-direction: column;
-    text-align: center;
-  }
-}
 </style>

@@ -12,7 +12,7 @@ onMounted(() => {
 <template>
   <div class="portfolio-wrapper">
     <div class="container py-5">
-      <header class="text-center mb-5 fade-in" data-aos="fade-up">
+      <header class="text-center mb-5 fade-in">
         <h1 class="display-4 fw-bold gradient-text">Bienvenue sur mon portfolio professionnel</h1>
         <div class="underline mx-auto"></div>
       </header>
@@ -20,8 +20,7 @@ onMounted(() => {
       <div
         v-if="githubProfile"
         class="profile-card mx-auto p-4 mb-5 shadow-lg"
-        data-aos="fade-up"
-        data-aos-delay="200"
+
       >
         <div class="profile-content">
           <div class="avatar-container">
@@ -49,20 +48,19 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+      <div class="text-center mt-5">
   <h3 class="mb-4 section-title">Explorez mon univers</h3>
   <div class="row justify-content-center g-4">
-    <div class="col-md-5 col-sm-6" data-aos="zoom-in" data-aos-delay="500">
+    <div class="col-md-5 col-sm-6">
       <router-link to="/repos/all?view=featured" class="category-card featured-btn">
-        <span class="icon">✨</span>
         <span class="label">Projets Vedettes</span>
         <small class="text-muted-hover">Mes réalisations majeures</small>
       </router-link>
     </div>
 
-    <div class="col-md-5 col-sm-6" data-aos="zoom-in" data-aos-delay="600">
+    <div class="col-md-5 col-sm-6">
       <router-link to="/repos/all?view=repos" class="category-card">
-        <span class="icon">📂</span>
+        
         <span class="label">Dépôts GitHub</span>
         <small class="text-muted-hover">Explorations et code brut</small>
       </router-link>
@@ -74,120 +72,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Fond et Global */
-.portfolio-wrapper {
-  min-height: 100vh;
-  background: radial-gradient(circle at top right, #fdfbfb 0%, #ebedee 100%);
-  color: #2d3436;
-  font-family: 'Inter', sans-serif;
-}
 
-/* Texte en dégradé */
-.gradient-text {
-  background: linear-gradient(45deg, #6c5ce7, #a29bfe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2.8rem;
-}
-
-.underline {
-  height: 4px;
-  width: 60px;
-  background: #6c5ce7;
-  border-radius: 2px;
-  margin-top: 10px;
-}
-
-/* Carte de profil */
-.profile-card {
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.profile-card:hover {
-  transform: translateY(-5px);
-}
-
-.avatar-container {
-  position: relative;
-  display: inline-block;
-}
-
-.profile-avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.status-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 20px;
-  height: 20px;
-  background: #00ca4e;
-  border: 3px solid white;
-  border-radius: 50%;
-}
-
-/* Boutons de catégorie */
-.category-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #2d3436;
-  font-weight: 600;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
-}
-
-.category-card:hover {
-  background: #6c5ce7;
-  color: white;
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
-}
-
-.category-card .icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Animations */
-.fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 767px) {
-  .gradient-text {
-    font-size: 2rem;
-  }
-  .profile-card {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-}
 </style>

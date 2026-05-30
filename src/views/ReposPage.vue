@@ -85,13 +85,13 @@ onMounted(() => {
             @click="setView('featured')" 
             :class="['btn-toggle', { active: currentView === 'featured' }]"
           >
-            ✨ Projets Vedettes
+            Projets MAJEUR
         </button>
         <button 
             @click="setView('repos')" 
             :class="['btn-toggle', { active: currentView === 'repos' }]"
           >
-            <i class="fab fa-github"></i> Dépôts GitHub
+             Dépôts GitHub
         </button>
       </div>
 
@@ -99,15 +99,15 @@ onMounted(() => {
         <div class="spinner-border text-primary" role="status"></div>
       </div>
 
-      <div v-else class="fade-in">
+      <div v-else>
         
         <div v-if="currentView === 'featured'" class="row g-4">
           <div class="col-md-6" v-for="project in featuredProjects" :key="project.id">
             <div class="repo-card featured-card h-100">
               <div class="card-content">
                 <div class="repo-header">
-                  <span class="folder-icon">{{ project.icon }}</span>
-                  <span class="badge-featured">PROJET MAJEUR</span>
+                  
+                  <span >PROJET MAJEUR</span>
                 </div>
                 <h3 class="repo-name">{{ project.name }}</h3>
                 <p class="repo-description">{{ project.description }}</p>
@@ -129,9 +129,8 @@ onMounted(() => {
             <div class="repo-card h-100">
               <div class="card-content">
                 <div class="repo-header">
-                  <span class="folder-icon">📂</span>
                   <div class="repo-stats">
-                    <span>⭐ {{ repo.stargazers_count }}</span>
+                    <span>{{ repo.stargazers_count }}</span>
                   </div>
                 </div>
                 <h3 class="repo-name">{{ repo.name }}</h3>
@@ -153,7 +152,6 @@ onMounted(() => {
 
         <div v-else class="text-center py-5">
           <div class="empty-state">
-            <span class="empty-icon">🔍</span>
             <p>Aucun projet trouvé ici.</p>
             <router-link to="/repos/all" class="btn btn-outline-primary">Voir tout</router-link>
           </div>
@@ -164,125 +162,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.projects-container {
-  min-height: 90vh;
-  background-color: var(--bg-secondary);
-  transition: background-color 0.3s ease;
-}
 
-.section-title {
-  font-weight: 800;
-  color: var(--text-primary);
-  font-size: 2.5rem;
-}
-
-.header-line {
-  width: 50px;
-  height: 4px;
-  background: var(--accent);
-  margin: 15px auto;
-  border-radius: 2px;
-}
-
-/* Boutons Toggle */
-.view-toggle {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.btn-toggle {
-  padding: 10px 25px;
-  border-radius: 50px;
-  border: 2px solid var(--accent);
-  background: transparent;
-  color: var(--text-primary);
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-toggle.active {
-  background: var(--accent);
-  color: white;
-  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
-}
-
-/* Cartes - AUCUNE BORDURE */
-.repo-card {
-  background: var(--card-bg);
-  border-radius: 20px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none !important;
-  outline: none !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.repo-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border: none !important;
-}
-
-/* On enlève aussi la bordure spéciale des projets vedettes */
-.featured-card {
-  border: none !important;
-  background: var(--card-bg);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.badge-featured {
-  background: var(--accent);
-  color: white;
-  font-size: 0.7rem;
-  padding: 4px 10px;
-  border-radius: 50px;
-  font-weight: 700;
-}
-
-.card-content {
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.repo-header, .repo-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: none !important;
-}
-
-.repo-header { margin-bottom: 1.2rem; }
-
-.repo-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.8rem;
-}
-
-.repo-description {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.github-link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 </style>
