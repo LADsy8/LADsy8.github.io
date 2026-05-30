@@ -8,18 +8,27 @@ onMounted(() => {
   fetchUserProfile();
 });
 
-const motifDeBase = [
-  "|__|   __|__|   __|__|   __|__|   __|__|   __|__|   __|__|   __|__|   ",
-  " __|__|   __|__|   __|__|   __|__|   __|__|   __|__|   __|__|   __|__|",
-  "|   __|__|   __|__|   __|__|   __|__|   __|__|   __|__|   __|__|   __|"
-];
-
 const motifs = computed(() => {
-  const totalRepetitions = 15; 
+
+  const basePattern = "   __|__|";
+  const positions = [5, 2, 8];
+  
+  const totalLignes = 60;   
+  const repetitionX = 35;   
+  
   let lignes: string[] = [];
-  for (let i = 0; i < totalRepetitions; i++) {
-    lignes.push(...motifDeBase);
+
+  for (let i = 0; i < totalLignes; i++) {
+
+    const indexDepart = positions[i % positions.length];
+  
+    const debutLigne = basePattern.slice(indexDepart);
+  
+    const suiteLigne = basePattern.repeat(repetitionX);
+    
+    lignes.push(debutLigne + suiteLigne);
   }
+  
   return lignes;
 });
 </script>
@@ -27,9 +36,15 @@ const motifs = computed(() => {
 <template>
  <div class="portfolio-wrapper position-relative overflow-hidden" style="min-height: 100vh;">
   
-  <div class="brick-background position-absolute top-0 start-0 w-100 h-100 z-0 m-0 p-0 text-secondary pe-none user-select-none" aria-hidden="true">
-    <div v-for="(ligne, index) in motifs" :key="index" class="pattern-line">{{ ligne }}</div>
-  </div>
+  <div class="brick-background position-absolute top-0 start-0 w-100 h-100 z-0 m-0 p-0 text-secondary pe-none " aria-hidden="true">
+      <div 
+        v-for="(ligne, index) in motifs" 
+        :key="index" 
+        class="pattern-line"
+      >
+        {{ ligne }}
+      </div>
+    </div>
  
     <div class="container py-5 position-relative z-1">
       <header class="text-center mb-5 fade-in">
@@ -37,7 +52,7 @@ const motifs = computed(() => {
         <div class="underline mx-auto"></div>
       </header>
 
-      <div v-if="githubProfile" class="profile-card mx-auto p-4 mb-5 shadow-lg">
+      <div v-if="githubProfile" class="">
         <div class="profile-content">
           <div class="avatar-container">
             <img src="../assets/1776786464860.jpg" alt="Avatar" class="profile-avatar" />
@@ -84,15 +99,20 @@ const motifs = computed(() => {
 </template>
 
 <style scoped>
+* {
+  font-family:monospace;
+}
 .brick-background {
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 1.05;
-  overflow: hidden;
-  opacity: 0.5;
+  font-size: 10px;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  opacity: 0.33;
 }
 
 .pattern-line {
+  margin: 0;
+  padding: 0;
   white-space: pre;
+  display: block;
 }
 </style>
