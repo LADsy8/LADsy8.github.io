@@ -9,14 +9,13 @@
 
     <h3>Qui suis-je ?</h3>
     <p>
-      Développeur junior tout court — pas en études : je viens de terminer mon DEC en techniques de
+      Développeur junior : je viens de terminer mon DEC en techniques de
       l’informatique (profil <strong>mobile, web et jeux vidéo</strong>) au Cégep de Sainte-Foy, en
       <strong>mai 2026</strong>.
     </p>
     <p>
       Passionné par le développement du front-end au back-end, j’aime livrer du code clair et
-      apprendre sur le terrain. Je cherche une première expérience en entreprise (stage complété ou
-      poste junior) pour continuer à progresser sur des projets réels.
+      apprendre sur le terrain. Je cherche une troisième expérience en entreprise pour continuer à progresser sur des projets réels.
     </p>
 
     <h3>Formation</h3>
