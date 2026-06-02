@@ -1,151 +1,3 @@
-<template>
-  <div class="contact-container py-5">
-    <div class="container">
-      <div class="text-center mb-5 fade-in">
-        <h2 class="section-title">Me Contacter</h2>
-        <p class="text-muted">
-          N'hésitez pas à me contacter pour discuter de projets ou d'opportunités
-        </p>
-        <div class="header-line"></div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="contact-card">
-            <div class="row">
-              <!-- Informations de contact -->
-              <div class="col-md-5 mb-4 mb-md-0">
-                <div class="contact-info">
-                  <h3 class="mb-4">Informations</h3>
-
-                  <div class="info-item mb-3">
-                    <div class="info-icon">
-                      <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="info-content">
-                      <h5>Email</h5>
-                      <p>dube.arthur@gmail.com</p>
-                    </div>
-                  </div>
-
-                  <div class="info-item mb-3">
-                    <div class="info-icon">
-                      <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="info-content">
-                      <h5>Téléphone</h5>
-                      <p>4385062474</p>
-                    </div>
-                  </div>
-
-                  <div class="info-item mb-3">
-                    <div class="info-icon">
-                      <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="info-content">
-                      <h5>Localisation</h5>
-                      <p>Québec, Canada</p>
-                    </div>
-                  </div>
-
-                  <div class="social-links mt-4">
-                    <h5>Réseaux Sociaux</h5>
-                    <div class="social-icons">
-                      <a href="https://github.com/ladsy8" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                      </a>
-                      <a
-                        href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/"
-                        target="_blank"
-                        class="social-link"
-                      >
-                        <i class="fab fa-linkedin"></i>
-                      </a>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Formulaire de contact -->
-              <div class="col-md-7">
-                <form @submit.prevent="handleSubmit" class="contact-form" novalidate>
-                  <div class="mb-3">
-                    <label for="name" class="form-label">Nom complet</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      v-model="form.name"
-                      :class="{ 'is-invalid': errors.name }"
-                      required
-                    />
-                    <div class="invalid-feedback" v-if="errors.name">{{ errors.name }}</div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      v-model="form.email"
-                      :class="{ 'is-invalid': errors.email }"
-                      required
-                    />
-                    <div class="invalid-feedback" v-if="errors.email">{{ errors.email }}</div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="subject" class="form-label">Sujet</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="subject"
-                      v-model="form.subject"
-                      :class="{ 'is-invalid': errors.subject }"
-                      required
-                    />
-                    <div class="invalid-feedback" v-if="errors.subject">{{ errors.subject }}</div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea
-                      class="form-control"
-                      id="message"
-                      rows="5"
-                      v-model="form.message"
-                      :class="{ 'is-invalid': errors.message }"
-                      required
-                    ></textarea>
-                    <div class="invalid-feedback" v-if="errors.message">{{ errors.message }}</div>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary w-100" :disabled="isSubmitting">
-                    <span v-if="isSubmitting">
-                      <i class="fas fa-spinner fa-spin me-2"></i>Envoi en cours...
-                    </span>
-                    <span v-else> <i class="fas fa-paper-plane me-2"></i>Envoyer le message </span>
-                  </button>
-
-                  <div
-                    v-if="submitMessage"
-                    class="alert mt-3"
-                    :class="submitMessage.type === 'success' ? 'alert-success' : 'alert-danger'"
-                  >
-                    {{ submitMessage.text }}
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 import { validateContactForm } from '../utils/validation';
@@ -168,22 +20,14 @@ const errors = reactive<Record<string, string>>({});
 const isSubmitting = ref(false);
 const submitMessage = ref<{ type: string; text: string } | null>(null);
 
-/**
- * Gère la soumission du formulaire
- */
 const handleSubmit = async () => {
-  // Utiliser le helper de validation
   const validationErrors = validateContactForm(form);
 
-  // Réinitialiser les erreurs
   Object.keys(errors).forEach(key => {
     delete errors[key];
   });
-
-  // Appliquer les nouvelles erreurs
   Object.assign(errors, validationErrors);
 
-  // Si des erreurs existent, arrêter
   if (Object.keys(validationErrors).length > 0) {
     return;
   }
@@ -192,23 +36,19 @@ const handleSubmit = async () => {
   submitMessage.value = null;
 
   try {
-    // Simulation d'envoi (remplacer par EmailJS ou autre service)
     await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Réinitialiser le formulaire
     form.name = '';
     form.email = '';
     form.subject = '';
     form.message = '';
-
     submitMessage.value = {
       type: 'success',
-      text: '',
+      text: 'Message envoyé (simulation).',
     };
-  } catch (error) {
+  } catch {
     submitMessage.value = {
       type: 'error',
-      text: "",
+      text: "Erreur à l'envoi.",
     };
   } finally {
     isSubmitting.value = false;
@@ -216,6 +56,52 @@ const handleSubmit = async () => {
 };
 </script>
 
-<style scoped>
+<template>
+  <article>
+    <h2>Me contacter</h2>
+    <p>N’hésitez pas à me contacter pour discuter de projets ou d’opportunités.</p>
 
-</style>
+    <h3>Coordonnées</h3>
+    <ul>
+      <li>Courriel : <a href="mailto:dube.arthur@gmail.com">dube.arthur@gmail.com</a></li>
+      <li>Téléphone : 438-506-2474</li>
+      <li>Localisation : Québec, Canada</li>
+      <li>
+        <a href="https://github.com/ladsy8" rel="noopener noreferrer">GitHub</a>
+        ·
+        <a
+          href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+      </li>
+    </ul>
+
+    <h3>Formulaire</h3>
+    <form @submit.prevent="handleSubmit" novalidate>
+      <label for="name">Nom complet</label>
+      <input id="name" v-model="form.name" type="text" required />
+      <p v-if="errors.name" class="error">{{ errors.name }}</p>
+
+      <label for="email">Courriel</label>
+      <input id="email" v-model="form.email" type="email" required />
+      <p v-if="errors.email" class="error">{{ errors.email }}</p>
+
+      <label for="subject">Sujet</label>
+      <input id="subject" v-model="form.subject" type="text" required />
+      <p v-if="errors.subject" class="error">{{ errors.subject }}</p>
+
+      <label for="message">Message</label>
+      <textarea id="message" v-model="form.message" rows="6" required></textarea>
+      <p v-if="errors.message" class="error">{{ errors.message }}</p>
+
+      <button type="submit" :disabled="isSubmitting">
+        {{ isSubmitting ? 'Envoi…' : 'Envoyer le message' }}
+      </button>
+
+      <p v-if="submitMessage" :class="submitMessage.type === 'success' ? 'message-ok' : 'message-err'">
+        {{ submitMessage.text }}
+      </p>
+    </form>
+  </article>
+</template>

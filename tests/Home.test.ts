@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../src/views/Home.vue';
 
-// Mock du composable
 vi.mock('../src/composables/useGithub', () => ({
   useGithub: () => ({
     user: { value: null },
@@ -14,35 +13,17 @@ vi.mock('../src/composables/useGithub', () => ({
 }));
 
 describe('Home.vue', () => {
-  it('devrait rendre le titre correctement', () => {
+  it('affiche le contenu principal', () => {
     const router = createRouter({
       history: createWebHistory(),
       routes: [],
     });
 
     const wrapper = mount(Home, {
-      global: {
-        plugins: [router],
-      },
+      global: { plugins: [router] },
     });
 
-    expect(wrapper.text()).toContain('Bienvenue sur mon Portfolio');
-  });
-
-  it('devrait afficher les catégories de projets', () => {
-    const router = createRouter({
-      history: createWebHistory(),
-      routes: [],
-    });
-
-    const wrapper = mount(Home, {
-      global: {
-        plugins: [router],
-      },
-    });
-
-    expect(wrapper.text()).toContain('Projets Académiques');
-    expect(wrapper.text()).toContain('Projets Personnels');
-    expect(wrapper.text()).toContain('Tous les Dépôts');
+    expect(wrapper.text()).toContain('Arthur Dubé');
+    expect(wrapper.text()).toContain('Projets vedettes');
   });
 });
