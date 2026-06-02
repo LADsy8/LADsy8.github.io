@@ -4,7 +4,7 @@ test.describe('Portfolio E2E Tests', () => {
   test('should load homepage', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Portfolio|Arthur/);
-    await expect(page.locator('h2')).toContainText('Accueil');
+    await expect(page.locator('main')).toContainText('développeur junior');
     await expect(page.locator('nav')).toBeVisible();
   });
 

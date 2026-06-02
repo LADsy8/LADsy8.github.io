@@ -2,7 +2,7 @@
 import { onMounted } from 'vue';
 import { useGithub } from '../composables/useGithub';
 
-const { user: githubProfile, fetchUserProfile } = useGithub();
+const { user: githubProfile, loading, error, fetchUserProfile } = useGithub();
 
 onMounted(() => {
   fetchUserProfile();
@@ -10,39 +10,46 @@ onMounted(() => {
 </script>
 
 <template>
-  <section>
-    <h2>Accueil</h2>
 
-    <p v-if="githubProfile">
-      <img src="../assets/1776786464860.jpg" alt="Arthur Dubé" width="120" height="120" />
+  <h2>Accueil</h2>
+  <section>
+    <p>
+      Développeur junior (mobile, web, jeux vidéo). DEC en techniques de l’informatique obtenu en
+      mai 2026 (Cégep de Sainte-Foy).
     </p>
 
     <p>
-      <strong>Arthur Dubé</strong> —
-      {{
-        githubProfile?.bio ||
-        'Développeur Full Stack Junior, un des créateurs d’Air-Métique.'
-      }}
+      Je conçois des applications web et des projets logiciels du front-end au back-end. Co-créateur
+      d’<router-link to="/project/air-metique">Air-Métique</router-link>. Recherche un emploi ou un
+      mandat au Québec (junior full stack, web ou mobile).
     </p>
 
-    <p v-if="githubProfile">
+    <p v-if="loading" class="loading">Chargement du profil GitHub…</p>
+    <p v-else-if="error">
+      Profil GitHub indisponible.
+      <a href="https://github.com/ladsy8" rel="noopener noreferrer">Voir github.com/ladsy8</a>
+    </p>
+    <p v-else-if="githubProfile">
+      <span v-if="githubProfile.bio">{{ githubProfile.bio }} · </span>
       {{ githubProfile.public_repos }} dépôts publics · {{ githubProfile.followers }} abonnés
       GitHub.
     </p>
-    <p v-else class="loading">Chargement du profil GitHub…</p>
 
-    <h3>Explorer</h3>
+    <h2>Liens utiles</h2>
     <ul>
       <li>
-        <router-link to="/repos/all?view=featured">Projets vedettes</router-link> — réalisations
-        majeures
+        <router-link to="/project/air-metique">Air-Métique</router-link> — projet vedette (IoT,
+        synthèse)
       </li>
       <li>
-        <router-link to="/repos/all?view=repos">Dépôts GitHub</router-link> — code et explorations
+        <router-link to="/repos/all?view=featured">Autres projets vedettes</router-link>
       </li>
-      <li><router-link to="/about">À propos</router-link> — parcours et bio</li>
-      <li><router-link to="/skills">Compétences</router-link> — langages et outils</li>
-      <li><router-link to="/contact">Contact</router-link> — formulaire et coordonnées</li>
+      <li>
+        <router-link to="/repos/all?view=repos">Dépôts GitHub</router-link>
+      </li>
+      <li><router-link to="/about">Parcours et formation</router-link></li>
+      <li><router-link to="/skills">Compétences</router-link></li>
+      <li><router-link to="/contact">Contact</router-link></li>
     </ul>
   </section>
 </template>

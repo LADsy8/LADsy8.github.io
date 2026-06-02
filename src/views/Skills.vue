@@ -17,7 +17,7 @@ const frameworks = [
   { name: 'React Native', level: 70 },
   { name: 'Node.js', level: 70 },
   { name: 'Express.js', level: 60 },
-  { name: 'Bootstrap', level: 85 },
+  { name: 'Bootstrap', level: 75 },
   { name: 'Unity', level: 65 },
 ];
 
