@@ -42,7 +42,7 @@ const project = computed(() => projectsData.projects.find(p => p.id === route.pa
     </ul>
 
     <p v-if="project.links?.gitlab">
-      <a :href="project.links.gitlab" rel="noopener noreferrer">Voir le code sur GitHub</a>
+      <a :href="project.links.gitlab" rel="noopener noreferrer">Voir le code sur GitLab</a>
     </p>
   </article>
 
