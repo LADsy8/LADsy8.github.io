@@ -43,7 +43,7 @@ const handleSubmit = async () => {
     form.message = '';
     submitMessage.value = {
       type: 'success',
-      text: 'Message enregistré (simulation). Utilisez aussi mailto ci-dessous.',
+      text: 'Message envoyé (simulation).',
     };
   } catch {
     submitMessage.value = {
@@ -58,15 +58,28 @@ const handleSubmit = async () => {
 
 <template>
   <article>
-    <h2>Contact</h2>
-    <p>
-      Courriel :
-      <a href="mailto:dube.arthur@gmail.com">dube.arthur@gmail.com</a>
-      · Téléphone : 438-506-2474 · Québec, Canada
-    </p>
+    <h2>Me contacter</h2>
+    <p>N’hésitez pas à me contacter pour discuter de projets ou d’opportunités.</p>
 
+    <h3>Coordonnées</h3>
+    <ul>
+      <li>Courriel : <a href="mailto:dube.arthur@gmail.com">dube.arthur@gmail.com</a></li>
+      <li>Téléphone : 438-506-2474</li>
+      <li>Localisation : Québec, Canada</li>
+      <li>
+        <a href="https://github.com/ladsy8" rel="noopener noreferrer">GitHub</a>
+        ·
+        <a
+          href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+      </li>
+    </ul>
+
+    <h3>Formulaire</h3>
     <form @submit.prevent="handleSubmit" novalidate>
-      <label for="name">Nom</label>
+      <label for="name">Nom complet</label>
       <input id="name" v-model="form.name" type="text" required />
       <p v-if="errors.name" class="error">{{ errors.name }}</p>
 
@@ -83,7 +96,7 @@ const handleSubmit = async () => {
       <p v-if="errors.message" class="error">{{ errors.message }}</p>
 
       <button type="submit" :disabled="isSubmitting">
-        {{ isSubmitting ? 'Envoi…' : 'Envoyer' }}
+        {{ isSubmitting ? 'Envoi…' : 'Envoyer le message' }}
       </button>
 
       <p v-if="submitMessage" :class="submitMessage.type === 'success' ? 'message-ok' : 'message-err'">

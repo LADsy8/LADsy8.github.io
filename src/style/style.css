@@ -31,10 +31,6 @@ a:visited {
   color: #551a8b;
 }
 
-a:hover {
-  color: #00c;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -42,7 +38,8 @@ img {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   line-height: 1.25;
   font-weight: bold;
 }
@@ -82,18 +79,11 @@ nav li {
 
 nav li + li::before {
   content: ' · ';
-  color: #000;
 }
 
 nav a.router-link-active {
   font-weight: bold;
   text-decoration: none;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 2rem 0;
 }
 
 label {
@@ -103,8 +93,7 @@ label {
 
 input,
 textarea,
-button,
-select {
+button {
   font: inherit;
   width: 100%;
   max-width: 100%;
@@ -119,8 +108,8 @@ textarea {
 
 button {
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
   width: auto;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
@@ -149,5 +138,4 @@ button:disabled {
 footer {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #333;
 }

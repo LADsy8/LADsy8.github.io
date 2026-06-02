@@ -11,15 +11,25 @@ onMounted(() => {
 
 <template>
   <section>
-    <h2>Portfolio</h2>
-    <p>
-      <strong>Arthur Dubé</strong> — développeur full stack junior, co-créateur d’Air-Métique.
-    </p>
+    <h2>Accueil</h2>
+
     <p v-if="githubProfile">
-      {{ githubProfile.bio || 'Projets web, IoT et logiciel.' }}
-      ({{ githubProfile.public_repos }} dépôts publics sur GitHub.)
+      <img src="../assets/1776786464860.jpg" alt="Arthur Dubé" width="120" height="120" />
     </p>
-    <p v-else>Chargement du profil GitHub…</p>
+
+    <p>
+      <strong>Arthur Dubé</strong> —
+      {{
+        githubProfile?.bio ||
+        'Développeur Full Stack Junior, un des créateurs d’Air-Métique.'
+      }}
+    </p>
+
+    <p v-if="githubProfile">
+      {{ githubProfile.public_repos }} dépôts publics · {{ githubProfile.followers }} abonnés
+      GitHub.
+    </p>
+    <p v-else class="loading">Chargement du profil GitHub…</p>
 
     <h3>Explorer</h3>
     <ul>
@@ -30,8 +40,9 @@ onMounted(() => {
       <li>
         <router-link to="/repos/all?view=repos">Dépôts GitHub</router-link> — code et explorations
       </li>
-      <li><router-link to="/about">À propos</router-link></li>
-      <li><router-link to="/contact">Me contacter</router-link></li>
+      <li><router-link to="/about">À propos</router-link> — parcours et bio</li>
+      <li><router-link to="/skills">Compétences</router-link> — langages et outils</li>
+      <li><router-link to="/contact">Contact</router-link> — formulaire et coordonnées</li>
     </ul>
   </section>
 </template>

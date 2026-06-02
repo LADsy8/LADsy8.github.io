@@ -75,9 +75,11 @@ onMounted(() => {
 <template>
   <article>
     <h2>{{ pageTitle }}</h2>
+    <p>Découvrez mes réalisations majeures et mes dépôts de code.</p>
+
     <p>
       <button type="button" :disabled="currentView === 'featured'" @click="setView('featured')">
-        Vedettes
+        Projets vedettes
       </button>
       <button type="button" :disabled="currentView === 'repos'" @click="setView('repos')">
         Dépôts GitHub
@@ -87,7 +89,7 @@ onMounted(() => {
     <p v-if="loading" class="loading">Chargement…</p>
 
     <section v-else-if="currentView === 'featured'">
-      <h3>Projets vedettes</h3>
+      <h3>Projets majeurs</h3>
       <ul>
         <li v-for="project in featuredProjects" :key="project.id">
           <router-link :to="project.link">{{ project.name }}</router-link>
@@ -101,12 +103,13 @@ onMounted(() => {
       <ul>
         <li v-for="repo in filteredRepos" :key="repo.id">
           <a :href="repo.html_url" rel="noopener noreferrer">{{ repo.name }}</a>
+          <span v-if="repo.stargazers_count"> — ★ {{ repo.stargazers_count }}</span>
           — {{ repo.description || 'Sans description.' }}
           <span v-if="repo.language"> ({{ repo.language }})</span>
         </li>
       </ul>
     </section>
 
-    <p v-else>Aucun dépôt trouvé. <router-link to="/repos/all">Voir tout</router-link></p>
+    <p v-else>Aucun projet trouvé. <router-link to="/repos/all">Voir tout</router-link></p>
   </article>
 </template>

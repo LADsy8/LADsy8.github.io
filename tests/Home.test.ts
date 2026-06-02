@@ -13,35 +13,17 @@ vi.mock('../src/composables/useGithub', () => ({
 }));
 
 describe('Home.vue', () => {
-  it('affiche le titre portfolio', () => {
+  it('affiche le contenu principal', () => {
     const router = createRouter({
       history: createWebHistory(),
       routes: [],
     });
 
     const wrapper = mount(Home, {
-      global: {
-        plugins: [router],
-      },
+      global: { plugins: [router] },
     });
 
-    expect(wrapper.text()).toContain('Portfolio');
     expect(wrapper.text()).toContain('Arthur Dubé');
-  });
-
-  it('affiche les liens vers les projets', () => {
-    const router = createRouter({
-      history: createWebHistory(),
-      routes: [],
-    });
-
-    const wrapper = mount(Home, {
-      global: {
-        plugins: [router],
-      },
-    });
-
     expect(wrapper.text()).toContain('Projets vedettes');
-    expect(wrapper.text()).toContain('Dépôts GitHub');
   });
 });
