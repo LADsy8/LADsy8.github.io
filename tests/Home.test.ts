@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../src/views/Home.vue';
 
-// Mock du composable
 vi.mock('../src/composables/useGithub', () => ({
   useGithub: () => ({
     user: { value: null },
@@ -14,7 +13,7 @@ vi.mock('../src/composables/useGithub', () => ({
 }));
 
 describe('Home.vue', () => {
-  it('devrait rendre le titre correctement', () => {
+  it('affiche le titre portfolio', () => {
     const router = createRouter({
       history: createWebHistory(),
       routes: [],
@@ -26,10 +25,11 @@ describe('Home.vue', () => {
       },
     });
 
-    expect(wrapper.text()).toContain('Bienvenue sur mon Portfolio');
+    expect(wrapper.text()).toContain('Portfolio');
+    expect(wrapper.text()).toContain('Arthur Dubé');
   });
 
-  it('devrait afficher les catégories de projets', () => {
+  it('affiche les liens vers les projets', () => {
     const router = createRouter({
       history: createWebHistory(),
       routes: [],
@@ -41,8 +41,7 @@ describe('Home.vue', () => {
       },
     });
 
-    expect(wrapper.text()).toContain('Projets Académiques');
-    expect(wrapper.text()).toContain('Projets Personnels');
-    expect(wrapper.text()).toContain('Tous les Dépôts');
+    expect(wrapper.text()).toContain('Projets vedettes');
+    expect(wrapper.text()).toContain('Dépôts GitHub');
   });
 });

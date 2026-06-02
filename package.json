@@ -15,17 +15,13 @@
     "format": "prettier --write src/**/*.ts src/**/*.vue src/**/*.css"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.2.0",
     "@vue/runtime-dom": "^3.5.13",
-    "aos": "^2.3.4",
-    "bootstrap": "^5.3.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.59.1",
-    "@types/aos": "^3.0.7",
     "@typescript-eslint/eslint-plugin": "^8.58.0",
     "@typescript-eslint/parser": "^8.58.0",
     "@vitejs/plugin-vue": "^5.2.1",

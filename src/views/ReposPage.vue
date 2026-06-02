@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, watch } from 'vue';
+import { onMounted, computed, watch, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useGithub } from '../composables/useGithub';
 import type { GitHubRepository } from '../types/github';
@@ -9,25 +9,22 @@ const route = useRoute();
 const router = useRouter();
 const { repos: allRepos, loading, fetchUserRepos } = useGithub();
 
-// État pour basculer entre les vues
-const currentView = ref<'featured' | 'repos'>((route.query.view as any) || 'featured');
+const currentView = ref<'featured' | 'repos'>((route.query.view as 'featured' | 'repos') || 'featured');
 
-// Projets Vedettes (Tes pages complètes)
-const featuredProjects = computed(() => {
-  return projectsData.projects.map(project => ({
+const featuredProjects = computed(() =>
+  projectsData.projects.map(project => ({
     id: project.id,
     name: project.title,
-    description: project.subtitle, // On utilise le sous-titre pour la version carte
-    language: project.technologies.map(t => t.name).join(' / '), // Concatène les technos
+    description: project.subtitle,
+    language: project.technologies.map(t => t.name).join(', '),
     link: `/project/${project.id}`,
-    icon: project.id === 'air-metique' ? '🚀' : '📂' // Icone selon l'ID
-  }));
-});
+  })),
+);
 
 const categoriesConfig = {
   school: ['ecole', 'school', 'academic', 'université', 'college'],
   personal: ['personnel', 'personal', 'projet', 'expérimentation'],
-  all: [],
+  all: [] as string[],
 };
 
 const filteredRepos = computed(() => {
@@ -44,27 +41,31 @@ const filteredRepos = computed(() => {
   });
 });
 
-const getCategoryTitle = computed(() => {
+const pageTitle = computed(() => {
   const category = route.params.category;
   switch (category) {
-    case 'school': return 'Projets Académiques';
-    case 'personal': return 'Projets Personnels';
-    default: return 'Tous mes Projets';
+    case 'school':
+      return 'Projets académiques';
+    case 'personal':
+      return 'Projets personnels';
+    default:
+      return 'Projets';
   }
 });
 
 const setView = (view: 'featured' | 'repos') => {
   currentView.value = view;
-  router.push({ 
-    query: { ...route.query, view: view } 
-  });
+  router.push({ query: { ...route.query, view } });
 };
 
-watch(() => route.query.view, (newView) => {
-  if (newView) {
-    currentView.value = newView as 'featured' | 'repos';
-  }
-});
+watch(
+  () => route.query.view,
+  newView => {
+    if (newView === 'featured' || newView === 'repos') {
+      currentView.value = newView;
+    }
+  },
+);
 
 onMounted(() => {
   fetchUserRepos();
@@ -72,95 +73,40 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="projects-container py-5">
-    <div class="container">
-      <div class="text-center mb-4 fade-in">
-        <h2 class="section-title">{{ getCategoryTitle }}</h2>
-        <p class="text-muted">Découvrez mes réalisations majeures et mes dépôts de code</p>
-        <div class="header-line"></div>
-      </div>
+  <article>
+    <h2>{{ pageTitle }}</h2>
+    <p>
+      <button type="button" :disabled="currentView === 'featured'" @click="setView('featured')">
+        Vedettes
+      </button>
+      <button type="button" :disabled="currentView === 'repos'" @click="setView('repos')">
+        Dépôts GitHub
+      </button>
+    </p>
 
-      <div class="view-toggle mb-5 fade-in">
-        <button 
-            @click="setView('featured')" 
-            :class="['btn-toggle', { active: currentView === 'featured' }]"
-          >
-            Projets MAJEUR
-        </button>
-        <button 
-            @click="setView('repos')" 
-            :class="['btn-toggle', { active: currentView === 'repos' }]"
-          >
-             Dépôts GitHub
-        </button>
-      </div>
+    <p v-if="loading" class="loading">Chargement…</p>
 
-      <div v-if="loading" class="text-center py-5">
-        <div class="spinner-border text-primary" role="status"></div>
-      </div>
+    <section v-else-if="currentView === 'featured'">
+      <h3>Projets vedettes</h3>
+      <ul>
+        <li v-for="project in featuredProjects" :key="project.id">
+          <router-link :to="project.link">{{ project.name }}</router-link>
+          — {{ project.description }} ({{ project.language }})
+        </li>
+      </ul>
+    </section>
 
-      <div v-else>
-        
-        <div v-if="currentView === 'featured'" class="row g-4">
-          <div class="col-md-6" v-for="project in featuredProjects" :key="project.id">
-            <div class="repo-card featured-card h-100">
-              <div class="card-content">
-                <div class="repo-header">
-                  
-                  <span >PROJET MAJEUR</span>
-                </div>
-                <h3 class="repo-name">{{ project.name }}</h3>
-                <p class="repo-description">{{ project.description }}</p>
-                <div class="repo-footer">
-                  <div class="repo-lang">
-                    <span class="lang-dot"></span> {{ project.language }}
-                  </div>
-                  <router-link :to="project.link" class="github-link">
-                    Voir les détails <span class="arrow">→</span>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section v-else-if="filteredRepos.length > 0">
+      <h3>Dépôts GitHub</h3>
+      <ul>
+        <li v-for="repo in filteredRepos" :key="repo.id">
+          <a :href="repo.html_url" rel="noopener noreferrer">{{ repo.name }}</a>
+          — {{ repo.description || 'Sans description.' }}
+          <span v-if="repo.language"> ({{ repo.language }})</span>
+        </li>
+      </ul>
+    </section>
 
-        <div v-else-if="filteredRepos.length > 0" class="row g-4">
-          <div class="col-md-6 col-lg-4" v-for="repo in filteredRepos" :key="repo.id">
-            <div class="repo-card h-100">
-              <div class="card-content">
-                <div class="repo-header">
-                  <div class="repo-stats">
-                    <span>{{ repo.stargazers_count }}</span>
-                  </div>
-                </div>
-                <h3 class="repo-name">{{ repo.name }}</h3>
-                <p class="repo-description">
-                  {{ repo.description || 'Exploration technique et développement de fonctionnalités.' }}
-                </p>
-                <div class="repo-footer">
-                  <div class="repo-lang" v-if="repo.language">
-                    <span class="lang-dot"></span> {{ repo.language }}
-                  </div>
-                  <a :href="repo.html_url" target="_blank" class="github-link">
-                    GitHub <span class="arrow">→</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div v-else class="text-center py-5">
-          <div class="empty-state">
-            <p>Aucun projet trouvé ici.</p>
-            <router-link to="/repos/all" class="btn btn-outline-primary">Voir tout</router-link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <p v-else>Aucun dépôt trouvé. <router-link to="/repos/all">Voir tout</router-link></p>
+  </article>
 </template>
-
-<style scoped>
-
-</style>
