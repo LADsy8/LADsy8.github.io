@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 100%;
+  font-size: 112.5%;
 }
 
 body {
@@ -17,9 +17,60 @@ body {
 }
 
 #app {
-  max-width: 40em;
-  margin: 0 auto;
-  padding: 1rem 1.25rem 2rem;
+  min-height: 100vh;
+  padding: 1.5rem 2rem 2.5rem;
+}
+
+.site-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 72rem;
+}
+
+.site-sidebar {
+  flex: 0 0 14rem;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.site-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 42rem;
+}
+
+.site-sidebar h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.site-sidebar .tagline {
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+  color: #333;
+}
+
+.site-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-sidebar nav li {
+  display: block;
+  margin: 0.35rem 0;
+  font-size: 1.1rem;
+}
+
+.site-sidebar nav li + li::before {
+  content: none;
+}
+
+.site-sidebar nav a.router-link-active {
+  font-weight: bold;
+  text-decoration: none;
 }
 
 a {
@@ -36,25 +87,21 @@ img {
   height: auto;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.25;
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 1.75rem;
-}
-
 h2 {
-  font-size: 1.35rem;
-  margin-top: 2rem;
+  font-size: 1.75rem;
+  margin: 0 0 1rem;
+  line-height: 1.25;
 }
 
 h3 {
+  font-size: 1.25rem;
+  margin: 1.75rem 0 0.5rem;
+  line-height: 1.25;
+}
+
+h4 {
   font-size: 1.1rem;
+  line-height: 1.25;
 }
 
 p {
@@ -67,25 +114,6 @@ ol {
   padding-left: 1.5rem;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem;
-}
-
-nav li {
-  display: inline;
-}
-
-nav li + li::before {
-  content: ' · ';
-}
-
-nav a.router-link-active {
-  font-weight: bold;
-  text-decoration: none;
-}
-
 label {
   display: block;
   margin-top: 0.75rem;
@@ -95,12 +123,12 @@ input,
 textarea,
 button {
   font: inherit;
-  width: 100%;
   max-width: 100%;
 }
 
 input,
 textarea {
+  width: 100%;
   margin-top: 0.25rem;
   padding: 0.35rem;
   border: 1px solid #999;
@@ -136,6 +164,38 @@ button:disabled {
 }
 
 footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+@media (max-width: 640px) {
+  #app {
+    padding: 1rem;
+  }
+
+  .site-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .site-sidebar {
+    position: static;
+    flex: none;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+  }
+
+  .site-sidebar nav li {
+    display: inline;
+  }
+
+  .site-sidebar nav li + li::before {
+    content: ' · ';
+  }
+
+  .site-content {
+    max-width: none;
+  }
 }
