@@ -238,7 +238,9 @@ const project = computed(() => projectsData.projects.find(p => p.id === route.pa
   font-weight: 500;
   text-decoration: none;
   box-shadow: var(--shadow-sm);
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 
 .gitlab-btn:hover {

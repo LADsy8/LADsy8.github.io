@@ -21,16 +21,19 @@ onMounted(() => {
 
     <section class="home-section">
       <p class="intro-text">
-        Je conçois des applications web et des projets logiciels du front-end au back-end. Co-créateur
-        d’<router-link to="/project/air-metique">Air-Métique</router-link>. Recherche un emploi ou un
-        mandat au Québec (junior full stack, web ou mobile). Je crée aussi un jeu dans mes temps libres et j'aime découvrir des jeux méconnus et indépendants.
+        Je conçois des applications web et des projets logiciels du front-end au back-end.
+        Co-créateur d’<router-link to="/project/air-metique">Air-Métique</router-link>. Recherche un
+        emploi ou un mandat au Québec (junior full stack, web ou mobile). Je crée aussi un jeu dans
+        mes temps libres et j'aime découvrir des jeux méconnus et indépendants.
       </p>
 
       <div class="github-status-box">
         <p v-if="loading" class="loading">Chargement du profil GitHub…</p>
         <p v-else-if="error" class="github-error">
           Profil GitHub indisponible.
-          <a href="https://github.com/ladsy8" target="_blank" rel="noopener noreferrer">Voir github.com/ladsy8</a>
+          <a href="https://github.com/ladsy8" target="_blank" rel="noopener noreferrer"
+            >Voir github.com/ladsy8</a
+          >
         </p>
         <div v-else-if="githubProfile" class="github-data">
           <span v-if="githubProfile.bio" class="github-bio">{{ githubProfile.bio }}</span>
@@ -41,10 +44,10 @@ onMounted(() => {
             <span class="stat-tag">
               <strong>{{ githubProfile.followers }}</strong> abonnés GitHub
             </span>
-            <a 
-              href="https://github.com/devlaner/devlane" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://github.com/devlaner/devlane"
+              target="_blank"
+              rel="noopener noreferrer"
               class="stat-tag contributor-tag"
             >
               <span class="badge-label">Contributeur</span>
@@ -215,7 +218,10 @@ onMounted(() => {
   border-radius: var(--radius-md);
   text-decoration: none;
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .nav-card:hover {

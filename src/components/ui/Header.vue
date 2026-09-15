@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 
-const isDark = ref<boolean>(false)
+const isDark = ref<boolean>(false);
 
 const toggleTheme = (): void => {
-  isDark.value = !isDark.value
+  isDark.value = !isDark.value;
   if (isDark.value) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
   } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
   }
-}
+};
 
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme')
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    isDark.value = true
-    document.documentElement.classList.add('dark')
+    isDark.value = true;
+    document.documentElement.classList.add('dark');
   } else {
-    isDark.value = false
-    document.documentElement.classList.remove('dark')
+    isDark.value = false;
+    document.documentElement.classList.remove('dark');
   }
-})
+});
 </script>
 
 <template>
@@ -36,9 +36,9 @@ onMounted(() => {
           <span>Arthur.code</span>
         </router-link>
 
-        <button 
-          type="button" 
-          class="theme-toggle-btn mobile-theme-btn" 
+        <button
+          type="button"
+          class="theme-toggle-btn mobile-theme-btn"
           :title="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'"
           @click="toggleTheme"
         >
@@ -53,9 +53,9 @@ onMounted(() => {
         <router-link to="/about">À propos</router-link>
         <router-link to="/contact">Contact</router-link>
 
-        <button 
-          type="button" 
-          class="theme-toggle-btn desktop-theme-btn" 
+        <button
+          type="button"
+          class="theme-toggle-btn desktop-theme-btn"
           :title="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'"
           @click="toggleTheme"
         >

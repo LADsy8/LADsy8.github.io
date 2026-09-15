@@ -9,7 +9,9 @@ const route = useRoute();
 const router = useRouter();
 const { repos: allRepos, loading, fetchUserRepos } = useGithub();
 
-const currentView = ref<'featured' | 'repos'>((route.query.view as 'featured' | 'repos') || 'featured');
+const currentView = ref<'featured' | 'repos'>(
+  (route.query.view as 'featured' | 'repos') || 'featured'
+);
 
 const featuredProjects = computed(() =>
   projectsData.projects.map(project => ({
@@ -18,7 +20,7 @@ const featuredProjects = computed(() =>
     description: project.subtitle,
     technologies: project.technologies.map(t => t.name),
     link: `/project/${project.id}`,
-  })),
+  }))
 );
 
 const categoriesConfig = {
@@ -64,7 +66,7 @@ watch(
     if (newView === 'featured' || newView === 'repos') {
       currentView.value = newView;
     }
-  },
+  }
 );
 
 onMounted(() => {
@@ -80,18 +82,18 @@ onMounted(() => {
     </header>
 
     <div class="view-toggle">
-      <button 
-        type="button" 
-        :class="['toggle-btn', { active: currentView === 'featured' }]" 
-        :disabled="currentView === 'featured'" 
+      <button
+        type="button"
+        :class="['toggle-btn', { active: currentView === 'featured' }]"
+        :disabled="currentView === 'featured'"
         @click="setView('featured')"
       >
         Projets vedettes
       </button>
-      <button 
-        type="button" 
-        :class="['toggle-btn', { active: currentView === 'repos' }]" 
-        :disabled="currentView === 'repos'" 
+      <button
+        type="button"
+        :class="['toggle-btn', { active: currentView === 'repos' }]"
+        :disabled="currentView === 'repos'"
         @click="setView('repos')"
       >
         Dépôts GitHub
@@ -105,10 +107,10 @@ onMounted(() => {
     <section v-else-if="currentView === 'featured'" class="projects-section">
       <h3>Projets majeurs</h3>
       <div class="projects-grid">
-        <router-link 
-          v-for="project in featuredProjects" 
-          :key="project.id" 
-          :to="project.link" 
+        <router-link
+          v-for="project in featuredProjects"
+          :key="project.id"
+          :to="project.link"
           class="project-item-card"
         >
           <div class="card-header">
@@ -129,17 +131,19 @@ onMounted(() => {
     <section v-else-if="filteredRepos.length > 0" class="projects-section">
       <h3>Dépôts GitHub</h3>
       <div class="projects-grid">
-        <a 
-          v-for="repo in filteredRepos" 
-          :key="repo.id" 
-          :href="repo.html_url" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          v-for="repo in filteredRepos"
+          :key="repo.id"
+          :href="repo.html_url"
+          target="_blank"
+          rel="noopener noreferrer"
           class="project-item-card"
         >
           <div class="card-header">
             <span class="project-title">{{ repo.name }}</span>
-            <span v-if="repo.stargazers_count" class="star-count">★ {{ repo.stargazers_count }}</span>
+            <span v-if="repo.stargazers_count" class="star-count"
+              >★ {{ repo.stargazers_count }}</span
+            >
           </div>
           <p class="project-desc">{{ repo.description || 'Sans description.' }}</p>
           <div v-if="repo.language" class="card-footer">
@@ -153,7 +157,7 @@ onMounted(() => {
 
     <div v-else class="status-container">
       <p class="empty-msg">
-        Aucun projet trouvé. 
+        Aucun projet trouvé.
         <router-link to="/repos/all">Voir tout</router-link>
       </p>
     </div>
@@ -240,7 +244,10 @@ onMounted(() => {
   border-radius: var(--radius-md);
   text-decoration: none;
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .project-item-card:hover {

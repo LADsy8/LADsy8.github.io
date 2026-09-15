@@ -7,8 +7,8 @@ export const projects = [
     media: [
       { type: 'image', url: '/img/air-metique-1.jpg', caption: 'Prototype V1' },
       { type: 'video', url: '/videos/demo-tva.mp4', caption: 'Extrait de l’entrevue TVA' },
-      { type: 'image', url: '/img/air-metique-pcb.jpg', caption: 'Conception du circuit' }
+      { type: 'image', url: '/img/air-metique-pcb.jpg', caption: 'Conception du circuit' },
     ],
-    technologies: ['Vue.js', 'Firebase', 'C++', 'ESP32']
-  }
+    technologies: ['Vue.js', 'Firebase', 'C++', 'ESP32'],
+  },
 ];

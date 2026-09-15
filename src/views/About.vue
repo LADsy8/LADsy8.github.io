@@ -11,12 +11,13 @@
     <section class="about-section">
       <h3>Qui suis-je ?</h3>
       <p>
-        Développeur junior : diplômé du DEC en techniques de l’informatique 
-        (profil <strong>mobile, web et jeux vidéo</strong>) au Cégep de Sainte-Foy en <strong>mai 2026</strong>.
+        Développeur junior : diplômé du DEC en techniques de l’informatique (profil
+        <strong>mobile, web et jeux vidéo</strong>) au Cégep de Sainte-Foy en
+        <strong>mai 2026</strong>.
       </p>
       <p>
-        Passionné par le développement full-stack, orienté code propre et apprentissage sur le terrain. 
-        À la recherche d'une opportunité en entreprise pour contribuer à des projets réels.
+        Passionné par le développement full-stack, orienté code propre et apprentissage sur le
+        terrain. À la recherche d'une opportunité en entreprise pour contribuer à des projets réels.
       </p>
     </section>
 
@@ -42,7 +43,8 @@
       <h3>Formation</h3>
       <ul class="styled-list">
         <li>
-          <strong>Mai 2026</strong> — DEC en techniques de l’informatique, profil mobile / web / jeux vidéo (Cégep de Sainte-Foy)
+          <strong>Mai 2026</strong> — DEC en techniques de l’informatique, profil mobile / web /
+          jeux vidéo (Cégep de Sainte-Foy)
         </li>
       </ul>
     </section>
@@ -52,7 +54,9 @@
       <ul class="timeline">
         <li>
           <span class="timeline-date">2026</span>
-          <span class="timeline-content">Co-création d’Air-Métique (qualité de l’air, entrevue TVA)</span>
+          <span class="timeline-content"
+            >Co-création d’Air-Métique (qualité de l’air, entrevue TVA)</span
+          >
         </li>
         <li>
           <span class="timeline-date">2023–2026</span>
@@ -64,7 +68,9 @@
         </li>
         <li>
           <span class="timeline-date">2020</span>
-          <span class="timeline-content">Entrée au Cégep Édouard-Montpetit (sciences humaines)</span>
+          <span class="timeline-content"
+            >Entrée au Cégep Édouard-Montpetit (sciences humaines)</span
+          >
         </li>
         <li>
           <span class="timeline-date">2018</span>

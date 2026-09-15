@@ -60,7 +60,9 @@ const handleSubmit = async () => {
   <article class="contact-card">
     <header class="contact-header">
       <h2>Me contacter</h2>
-      <p class="subtitle">N’hésitez pas à me contacter pour discuter de projets ou d’opportunités.</p>
+      <p class="subtitle">
+        N’hésitez pas à me contacter pour discuter de projets ou d’opportunités.
+      </p>
     </header>
 
     <section class="contact-section">
@@ -83,7 +85,12 @@ const handleSubmit = async () => {
           <div class="social-links">
             <a href="https://github.com/ladsy8" target="_blank" rel="noopener noreferrer">GitHub</a>
             <span>·</span>
-            <a href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a
+              href="https://www.linkedin.com/in/arthur-dub%C3%A9-6a4587205/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
           </div>
         </div>
       </div>
@@ -94,49 +101,49 @@ const handleSubmit = async () => {
       <form @submit.prevent="handleSubmit" novalidate class="contact-form">
         <div class="form-group">
           <label for="name">Nom complet</label>
-          <input 
-            id="name" 
-            v-model="form.name" 
-            type="text" 
+          <input
+            id="name"
+            v-model="form.name"
+            type="text"
             :class="{ 'has-error': errors.name }"
             placeholder="Jean Dupont"
-            required 
+            required
           />
           <p v-if="errors.name" class="error">{{ errors.name }}</p>
         </div>
 
         <div class="form-group">
           <label for="email">Courriel</label>
-          <input 
-            id="email" 
-            v-model="form.email" 
-            type="email" 
+          <input
+            id="email"
+            v-model="form.email"
+            type="email"
             :class="{ 'has-error': errors.email }"
             placeholder="exemple@domaine.com"
-            required 
+            required
           />
           <p v-if="errors.email" class="error">{{ errors.email }}</p>
         </div>
 
         <div class="form-group">
           <label for="subject">Sujet</label>
-          <input 
-            id="subject" 
-            v-model="form.subject" 
-            type="text" 
+          <input
+            id="subject"
+            v-model="form.subject"
+            type="text"
             :class="{ 'has-error': errors.subject }"
             placeholder="Opportunité de projet"
-            required 
+            required
           />
           <p v-if="errors.subject" class="error">{{ errors.subject }}</p>
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea 
-            id="message" 
-            v-model="form.message" 
-            rows="5" 
+          <textarea
+            id="message"
+            v-model="form.message"
+            rows="5"
             :class="{ 'has-error': errors.message }"
             placeholder="Votre message..."
             required
@@ -148,9 +155,12 @@ const handleSubmit = async () => {
           {{ isSubmitting ? 'Envoi…' : 'Envoyer le message' }}
         </button>
 
-        <p 
-          v-if="submitMessage" 
-          :class="['status-message', submitMessage.type === 'success' ? 'message-ok' : 'message-err']"
+        <p
+          v-if="submitMessage"
+          :class="[
+            'status-message',
+            submitMessage.type === 'success' ? 'message-ok' : 'message-err',
+          ]"
         >
           {{ submitMessage.text }}
         </p>
