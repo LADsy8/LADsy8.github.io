@@ -16,11 +16,10 @@ test.describe('Portfolio E2E Tests', () => {
 
   test('should submit contact form', async ({ page }) => {
     await page.goto('/contact');
-    await page.fill('input[name="name"]', 'Test User');
-    await page.fill('input[type="email"]', 'test@example.com');
-    await page.fill('textarea[name="message"]', 'Message de test E2E');
+    await page.fill('#name', 'Test User');
+    await page.fill('#email', 'test@example.com');
+    await page.fill('#message', 'Message de test E2E');
     
-    // Ajuster le sélecteur si nécessaire
     const submitBtn = page.locator('button[type="submit"]');
     if (await submitBtn.isVisible()) {
       await submitBtn.click();
