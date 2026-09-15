@@ -14,9 +14,17 @@ vi.mock('../src/composables/useGithub', () => ({
 
 describe('Home.vue', () => {
   it('affiche le pitch sans répéter le nom', () => {
+    const dummyComponent = { template: '<div />' };
     const router = createRouter({
       history: createWebHistory(),
-      routes: [{ path: '/project/:id', component: { template: '<div />' } }],
+      routes: [
+        { path: '/', component: dummyComponent },
+        { path: '/repos/all', component: dummyComponent },
+        { path: '/about', component: dummyComponent },
+        { path: '/skills', component: dummyComponent },
+        { path: '/contact', component: dummyComponent },
+        { path: '/project/:id', component: dummyComponent },
+      ],
     });
 
     const wrapper = mount(Home, {
@@ -24,7 +32,7 @@ describe('Home.vue', () => {
     });
 
     expect(wrapper.text()).not.toContain('Arthur Dubé');
-    expect(wrapper.text()).toContain('développeur junior');
+    expect(wrapper.text().toLowerCase()).toContain('développeur junior');
     expect(wrapper.text()).toContain('Air-Métique');
   });
 });
