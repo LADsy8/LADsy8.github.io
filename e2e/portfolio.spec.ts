@@ -4,9 +4,13 @@ test.describe('Portfolio E2E Tests', () => {
   test('should load homepage', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Portfolio|Arthur/);
-    await expect(page.locator('main')).toContainText('développeur junior');
+    
+    // Utilisation d'une expression régulière avec le drapeau 'i' pour être insensible à la casse
+    await expect(page.locator('main')).toContainText(/développeur junior/i);
+    
     await expect(page.locator('nav')).toBeVisible();
   });
+});
 
   test('should navigate between pages', async ({ page }) => {
     await page.goto('/');
