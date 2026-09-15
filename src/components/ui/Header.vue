@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue'
 
 const isDark = ref<boolean>(false)
-const isMenuOpen = ref<boolean>(false)
 
 const toggleTheme = (): void => {
   isDark.value = !isDark.value
@@ -13,14 +12,6 @@ const toggleTheme = (): void => {
     document.documentElement.classList.remove('dark')
     localStorage.setItem('theme', 'light')
   }
-}
-
-const toggleMenu = (): void => {
-  isMenuOpen.value = !isMenuOpen.value
-}
-
-const closeMenu = (): void => {
-  isMenuOpen.value = false
 }
 
 onMounted(() => {
